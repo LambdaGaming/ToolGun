@@ -27,7 +27,7 @@ body {
 .topPanel {
 	top:0;
 	left:0;
-	position:absolute;
+	position:relative;
 	width:256px;
 	height:24px;
 	background-color:#003090;
@@ -44,4 +44,35 @@ body {
 	padding-left:2px;
 	font-family:Arial, Helvetica, sans-serif;
 	font-size:13px;
+}
+
+.navPanel {
+	position:relative;
+	height:31px;
+}
+
+.contentPanel {
+	position:relative;
+	height:91px;
+	background-color:#00000078;
+}
+
+.crashPanel {
+	position:relative;
+	height:22px;
+	background-color:#00000028;
+}
+
+.statsPanel {
+	position:relative;
+	height:57px;
+	border-bottom:2px solid #FFFFFF1E;
+}
+
+.optionsPanel {
+	position:relative;
+	height:22px;
+	background-color:#DAD9D5;
+	border-top:2px solid black;
+	border-bottom:2px solid black;
 }

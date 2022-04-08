@@ -1,5 +1,5 @@
 function UpdateTime() {
 	var date = new Date()
 	var timeElement = document.getElementById( "time" )
-	timeElement.innerHTML = date.getHours() + ":" + date.getMinutes()
+	timeElement.innerHTML = date.toLocaleString( "en-US", { hour: "numeric", minute: "numeric", hour12: false } )
 }

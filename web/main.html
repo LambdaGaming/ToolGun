@@ -2,6 +2,7 @@
 <html>
 	<head>
 		<link rel="stylesheet" href="style.css">
+		<script src="/eel.js"></script>
 		<script src="system.js"></script>
 	</head>
 	<body>
@@ -18,7 +19,7 @@
 			
 		</div>
 		<div class="crashPanel">
-			You have not crashed! <a href="" class="crashText" onclick="Crash()">Click Here</a> to crash!
+			You have not crashed! <a href="" class="crashText" onclick="window.close()">Click Here</a> to crash!
 		</div>
 		<div class="statsPanel">
 			
@@ -27,4 +28,7 @@
 			
 		</div>
 	</body>
+	<script>
+		UpdateVolume()
+	</script>
 </html>

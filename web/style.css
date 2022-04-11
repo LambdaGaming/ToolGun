@@ -49,6 +49,14 @@ body {
 .navPanel {
 	position:relative;
 	height:31px;
+	font-size:10px;
+	padding-left:3px;
+	padding-right:3px;
+	top:5px;
+}
+
+.navPanelTextLeft {
+	margin-right:50px;
 }
 
 .contentPanel {

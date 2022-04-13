@@ -15,3 +15,8 @@ function UpdateVolume() {
 		}
 	} )
 }
+
+function UpdateScrollText() {
+	var text = document.getElementById( "contentTitle" )
+	text.style.animation = "anim " + text.innerHTML.length / 4 + "s linear infinite" // Not perfect but works for now
+}

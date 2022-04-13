@@ -67,6 +67,25 @@ body {
 	position:relative;
 	height:91px;
 	background-color:#00000078;
+	font-size:60px;
+	font-weight:600;
+	color:white;
+	text-shadow:4px 2px black;
+	overflow:hidden;
+	white-space:nowrap;
+	text-overflow:clip;
+}
+
+.contentPanelText {
+	position:absolute;
+	text-align:center;
+	top:5px;
+	animation:anim 2.0s linear infinite;
+}
+
+@keyframes anim {
+	from { transform:translateX( 100% ); }
+	to { transform:translateX( -100% ); }
 }
 
 .crashPanel {
@@ -104,7 +123,6 @@ body {
 .optionsPanel button {
 	background-color:inherit;
 	padding:0;
-	color:black;
 	font-weight:bold;
 	border:none;
 	height:100%;

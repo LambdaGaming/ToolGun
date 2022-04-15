@@ -24,7 +24,16 @@
 			You have not crashed! <a href="" class="crashText" onclick="window.close()">Click Here</a> to crash!
 		</div>
 		<div class="statsPanel">
-			
+			<div class="statsPanelLeft">
+				CPU: <span id="cpustats">0%</span><br>
+				CPU Temp: <span id="gpustats">0c</span><br>
+				RAM: <span id="ramstats">0GB</span><br>
+			</div>
+			<div class="statsPanelRight">
+				<span id="extrastat1"></span>
+				<span id="extrastat2"></span>
+				<span id="extrastat3"></span>
+			</div>
 		</div>
 		<div class="optionsPanel">
 			<button>File</button>
@@ -35,5 +44,6 @@
 	<script>
 		UpdateScrollText()
 		UpdateVolume()
+		setInterval( UpdatePerformanceStats, 1000 )
 	</script>
 </html>

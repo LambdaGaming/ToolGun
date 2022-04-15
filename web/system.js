@@ -20,3 +20,15 @@ function UpdateScrollText() {
 	var text = document.getElementById( "contentTitle" )
 	text.style.animation = "anim " + text.innerHTML.length / 4 + "s linear infinite" // Not perfect but works for now
 }
+
+function UpdatePerformanceStats() {
+	var cpustats = document.getElementById( "cpustats" )
+	var gpustats = document.getElementById( "gpustats" )
+	var ramstats = document.getElementById( "ramstats" )
+
+	eel.GetPerformanceStats()( n => {
+		cpustats.innerHTML = `${n[0]}%`
+		gpustats.innerHTML = `${n[1]}c`
+		ramstats.innerHTML = `${n[2]}% `
+	} )
+}

@@ -20,6 +20,11 @@ def GetPerformanceStats():
 	tempfile.close()
 	return stats
 
+@eel.expose
+def ToggleMute():
+	setting = IsMuted() and "unmute" or "mute"
+	subprocess.run( ["amixer set Master " + setting], shell = True )
+
 if __name__ == "__main__":
 	eel.init( "web" )
-	eel.start( "main.html", size = ( 256, 256 ) )
+	eel.start( "main.html", size = ( 256, 256 ), close_callback = lambda *args: None )

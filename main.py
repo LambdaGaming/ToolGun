@@ -1,6 +1,7 @@
 import eel
 import psutil
 import subprocess
+import sys
 
 @eel.expose
 def IsMuted():
@@ -24,6 +25,10 @@ def GetPerformanceStats():
 def ToggleMute():
 	setting = IsMuted() and "unmute" or "mute"
 	subprocess.run( ["amixer set Master " + setting], shell = True )
+
+@eel.expose
+def Shutdown():
+	sys.exit()
 
 if __name__ == "__main__":
 	eel.init( "web" )

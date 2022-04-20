@@ -37,3 +37,8 @@ function ToggleMute() {
 	eel.ToggleMute()
 	UpdateVolume()
 }
+
+function Shutdown() {
+	eel.Shutdown()
+	window.close()
+}

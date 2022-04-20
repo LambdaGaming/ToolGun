@@ -29,6 +29,6 @@ function UpdatePerformanceStats() {
 	eel.GetPerformanceStats()( n => {
 		cpustats.innerHTML = `${n[0]}%`
 		gpustats.innerHTML = `${n[1]}c`
-		ramstats.innerHTML = `${n[2]}% `
+		ramstats.innerHTML = `${n[2]}%`
 	} )
 }

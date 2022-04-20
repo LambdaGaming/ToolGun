@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<link rel="stylesheet" href="style.css">
+		<link rel="stylesheet" href="main.css">
 		<script src="/eel.js"></script>
-		<script src="system.js"></script>
+		<script src="main.js"></script>
 	</head>
 	<body>
 		<div class="topPanel">
@@ -27,7 +27,7 @@
 			<div class="statsPanelLeft">
 				CPU: <span id="cpustats">0%</span><br>
 				CPU Temp: <span id="gpustats">0c</span><br>
-				RAM: <span id="ramstats">0GB</span><br>
+				RAM: <span id="ramstats">0%</span><br>
 			</div>
 			<div class="statsPanelRight">
 				<span id="extrastat1"></span>
@@ -36,14 +36,15 @@
 			</div>
 		</div>
 		<div class="optionsPanel">
-			<button>File</button>
-			<button>Open</button>
-			<button>Quit</button>
+			<button onclick="location.href = 'file.html'">File</button>
+			<button onclick="location.href = 'open.html'">Open</button>
+			<button onclick="window.close()">Quit</button>
 		</div>
 	</body>
 	<script>
 		UpdateScrollText()
 		UpdateVolume()
+		UpdateTime()
 		setInterval( UpdatePerformanceStats, 1000 )
 	</script>
 </html>

@@ -152,3 +152,16 @@ body {
 	background-color:#a1a19e;
 	border:1px solid black;
 }
+
+.fileContainer {
+	position:relative;
+	height:203px;
+	background-color:#00000078;
+}
+
+.fileContainer a {
+	color:white;
+	font-weight:bold;
+	text-decoration:none;
+	margin:10px;
+}

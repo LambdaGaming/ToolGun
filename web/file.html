@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="main.css">
+		<script src="main.js"></script>
+	</head>
+	<body>
+		<div class="topPanel">
+			<img class="balls" src="images/balls.png">
+			<span class="topPanelText">Toolgun Options</span>
+			<img id="speaker" class="speaker" src="images/speaker_on.png">
+			<span id="time" class="time"><script>setInterval( UpdateTime, 1000 )</script></span>
+		</div>
+		<div class="fileContainer">
+			
+		</div>
+		<div class="optionsPanel">
+			<button onclick="location.href = 'main.html'">File</button>
+			<button onclick="location.href = 'open.html'">Open</button>
+			<button onclick="window.close()">Quit</button>
+		</div>
+	</body>
+	<script>
+		UpdateVolume()
+		UpdateTime()
+	</script>
+</html>

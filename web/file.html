@@ -9,10 +9,11 @@
 			<img class="balls" src="images/balls.png">
 			<span class="topPanelText">Toolgun Options</span>
 			<img id="speaker" class="speaker" src="images/speaker_on.png">
-			<span id="time" class="time"><script>setInterval( UpdateTime, 1000 )</script></span>
+			<span id="time" class="time"></span>
 		</div>
 		<div class="fileContainer">
-			
+			<a href="main.html">Return</a>
+			<a href="" onclick="ToggleMute()">Toggle Mute</a>
 		</div>
 		<div class="optionsPanel">
 			<button onclick="location.href = 'main.html'">File</button>
@@ -21,7 +22,8 @@
 		</div>
 	</body>
 	<script>
-		UpdateVolume()
 		UpdateTime()
+		setInterval( UpdateTime, 1000 )
+		UpdateVolume()
 	</script>
 </html>

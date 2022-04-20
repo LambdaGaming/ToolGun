@@ -165,3 +165,11 @@ body {
 	text-decoration:none;
 	margin:10px;
 }
+
+.fileContainer a:hover {
+	color:#bbbbbb;
+}
+
+.fileContainer a:active {
+	color:black;
+}

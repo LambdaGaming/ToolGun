@@ -32,3 +32,8 @@ function UpdatePerformanceStats() {
 		ramstats.innerHTML = `${n[2]}%`
 	} )
 }
+
+function ToggleMute() {
+	eel.ToggleMute()
+	UpdateVolume()
+}

@@ -10,7 +10,7 @@
 			<img class="balls" src="images/balls.png">
 			<span class="topPanelText">Garrys Mod Hello</span>
 			<img id="speaker" class="speaker" src="images/speaker_on.png">
-			<span id="time" class="time"><script>setInterval( UpdateTime, 1000 )</script></span>
+			<span id="time" class="time"></span>
 		</div>
 		<div class="navPanel">
 			<!--Placeholder text until Phase III-->
@@ -42,9 +42,10 @@
 		</div>
 	</body>
 	<script>
+		UpdateTime()
+		setInterval( UpdateTime, 1000 )
 		UpdateScrollText()
 		UpdateVolume()
-		UpdateTime()
 		setInterval( UpdatePerformanceStats, 1000 )
 	</script>
 </html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="main.css">
+		<script src="/eel.js"></script>
+		<script src="main.js"></script>
+	</head>
+	<body>
+		<div class="topPanel">
+			<img class="balls" src="images/balls.png">
+			<span class="topPanelText">Program List</span>
+			<img id="speaker" class="speaker" src="images/speaker_on.png">
+			<span id="time" class="time"></span>
+		</div>
+		<div id="programList" class="fileContainer">
+			<script>UpdateProgramList()</script>
+		</div>
+		<div class="optionsPanel">
+			<button onclick="location.href = 'main.html'">File</button>
+			<button onclick="location.href = 'open.html'">Open</button>
+			<button onclick="Shutdown()">Quit</button>
+		</div>
+	</body>
+	<script>
+		UpdateTime()
+		setInterval( UpdateTime, 1000 )
+		UpdateVolume()
+	</script>
+</html>

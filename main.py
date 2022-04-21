@@ -3,6 +3,11 @@ import psutil
 import subprocess
 import sys
 
+CURRENT_PROGRAM = None
+PROGRAM_LIST = [
+	["IR Blaster", "program_ir"]
+]
+
 @eel.expose
 def IsMuted():
 	sinkslist = subprocess.run( ["pacmd", "list-sinks"], stdout = subprocess.PIPE )
@@ -24,11 +29,25 @@ def GetPerformanceStats():
 @eel.expose
 def ToggleMute():
 	setting = IsMuted() and "unmute" or "mute"
-	subprocess.run( ["amixer set Master " + setting], shell = True )
+	subprocess.run( [f"amixer set Master {setting}"], shell = True )
 
 @eel.expose
 def Shutdown():
 	sys.exit()
+
+@eel.expose
+def GetProgramList():
+	return PROGRAM_LIST
+
+def KillCurrentProgram():
+	if CURRENT_PROGRAM is not None:
+		CURRENT_PROGRAM.terminate()
+
+@eel.expose
+def StartProgram( name ):
+	global CURRENT_PROGRAM
+	KillCurrentProgram()
+	CURRENT_PROGRAM = subprocess.Popen( args = ["python3", f"{name}.py"], stdout = subprocess.PIPE )
 
 if __name__ == "__main__":
 	eel.init( "web" )

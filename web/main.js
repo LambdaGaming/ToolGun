@@ -40,5 +40,20 @@ function ToggleMute() {
 
 function Shutdown() {
 	eel.Shutdown()
-	window.close()
+	close()
+}
+
+function UpdateProgramList() {
+	var list = document.getElementById( "programList" )
+	eel.GetProgramList()( n => {
+		for ( var i = 0; i < n.length; i++ ) ( function( i ) {
+			var a = document.createElement( "a" )
+			var textnode = document.createTextNode( n[i][0] )
+			a.appendChild( textnode )
+			a.addEventListener( "click", function() {
+				eel.StartProgram( n[i][1] )
+			} )
+			list.appendChild( a )
+		} )( i )
+	} )
 }

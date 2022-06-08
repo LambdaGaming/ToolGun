@@ -1,15 +1,15 @@
 #include <IRremote.h>
 
+#define IR_SEND_PIN 32
+
 IRsend sender;
 
 void setup() {
-  
+  IrSender.begin( IR_SEND_PIN );
 }
 
 void loop() {
-  sender.setSendPin( 19 );
-  uint32_t dat = 0xEF10FF00;
-  uint8_t len = 32;
-  sender.sendNEC( dat, len );
-  delay( 500 );
+  
+  sender.sendSamsung( 0x707, 0x2, 0 );
+  delay( 1000 );
 }

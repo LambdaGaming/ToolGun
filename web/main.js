@@ -57,3 +57,24 @@ function UpdateProgramList() {
 		} )( i )
 	} )
 }
+
+function UpdateExtraStat( num, info ) {
+	var stat = document.getElementById( `extrastat${num}` )
+	stat.innerText = info
+	
+}
+
+function UpdateFunctionList() {
+	var list = document.getElementById( "fileContainer" )
+	eel.GetFunctionList()( n => {
+		for ( var i = 0; i < n.length; i++ ) ( function( i ) {
+			var a = document.createElement( "a" )
+			var textnode = document.createTextNode( n[i] )
+			a.appendChild( textnode )
+			a.addEventListener( "click", function() {
+				eel.ChangeFunction( i )
+			} )
+			list.appendChild( a )
+		} ) ( i )
+	} )
+}

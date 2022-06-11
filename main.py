@@ -5,7 +5,7 @@ import sys
 
 CURRENT_PROGRAM = None
 PROGRAM_LIST = [
-	["IR Blaster", "program_ir"]
+	["Smart TV Remote", "program_tv"]
 ]
 
 @eel.expose

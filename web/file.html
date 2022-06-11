@@ -12,7 +12,7 @@
 			<img id="speaker" class="speaker" src="images/speaker_on.png">
 			<span id="time" class="time"></span>
 		</div>
-		<div class="fileContainer">
+		<div id="fileContainer" class="fileContainer">
 			<a href="main.html">Return</a>
 			<a href="" onclick="ToggleMute()">Toggle Mute</a>
 		</div>
@@ -26,5 +26,6 @@
 		UpdateTime()
 		setInterval( UpdateTime, 1000 )
 		UpdateVolume()
+		UpdateFunctionList()
 	</script>
 </html>

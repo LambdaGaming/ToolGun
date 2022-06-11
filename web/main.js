@@ -18,6 +18,7 @@ function UpdateVolume() {
 
 function UpdateScrollText() {
 	var text = document.getElementById( "contentTitle" )
+	text.innerHTML = sessionStorage.getItem( "CurrentTitle" )
 	text.style.animation = `anim ${text.innerHTML.length / 4}s linear infinite` // Not perfect but works for now
 }
 
@@ -31,6 +32,11 @@ function UpdatePerformanceStats() {
 		gpustats.innerHTML = `${n[1]}c`
 		ramstats.innerHTML = `${n[2]}%`
 	} )
+}
+
+function UpdateCurrentFunction() {
+	var text = document.getElementById( "currentFunction" )
+	text.innerHTML = sessionStorage.getItem( "CurrentFunction" )
 }
 
 function ToggleMute() {
@@ -52,16 +58,12 @@ function UpdateProgramList() {
 			a.appendChild( textnode )
 			a.addEventListener( "click", function() {
 				eel.StartProgram( n[i][1] )
+				sessionStorage.setItem( "CurrentTitle", n[i][0] )
+				location.href = "main.html"
 			} )
 			list.appendChild( a )
 		} )( i )
 	} )
-}
-
-function UpdateExtraStat( num, info ) {
-	var stat = document.getElementById( `extrastat${num}` )
-	stat.innerText = info
-	
 }
 
 function UpdateFunctionList() {
@@ -73,6 +75,8 @@ function UpdateFunctionList() {
 			a.appendChild( textnode )
 			a.addEventListener( "click", function() {
 				eel.ChangeFunction( i )
+				sessionStorage.setItem( "CurrentFunction", n[i] )
+				location.href = "main.html"
 			} )
 			list.appendChild( a )
 		} ) ( i )

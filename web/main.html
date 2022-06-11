@@ -18,7 +18,7 @@
 			<span><a id=navPanelRight href="" onclick="">Team Fortress 2</a> &#62;</span>
 		</div>
 		<div class="contentPanel">
-			<span id="contentTitle" class="contentPanelText">Toolgun</span>
+			<span id="contentTitle" class="contentPanelText"></span>
 		</div>
 		<div class="crashPanel">
 			You have not crashed! <a href="" class="crashText" onclick="Shutdown()">Click Here</a> to crash!
@@ -30,9 +30,7 @@
 				RAM: <span id="ramstats">0%</span><br>
 			</div>
 			<div class="statsPanelRight">
-				<span id="extrastat1"></span>
-				<span id="extrastat2"></span>
-				<span id="extrastat3"></span>
+				Selected Function: <span id="currentFunction"></span>
 			</div>
 		</div>
 		<div class="optionsPanel">
@@ -46,6 +44,7 @@
 		setInterval( UpdateTime, 1000 )
 		UpdateScrollText()
 		UpdateVolume()
+		UpdateCurrentFunction()
 		setInterval( UpdatePerformanceStats, 1000 )
 	</script>
 </html>

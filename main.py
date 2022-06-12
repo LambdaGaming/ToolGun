@@ -9,7 +9,7 @@ TRIGGER_BUTTON = 26
 trigger = Button( TRIGGER_BUTTON, False )
 
 CURRENT_PROGRAM = None
-CURRENT_MODULE = importlib.import_module( "base_program" )
+CURRENT_MODULE = importlib.import_module( "program_base" )
 PROGRAM_LIST = [
 	["Smart TV Remote", "program_ir"]
 ]

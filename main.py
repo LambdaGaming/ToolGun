@@ -5,6 +5,9 @@ import psutil
 import subprocess
 import sys
 
+TRIGGER_BUTTON = 26
+trigger = Button( TRIGGER_BUTTON, False )
+
 CURRENT_PROGRAM = None
 CURRENT_MODULE = importlib.import_module( "base_program" )
 PROGRAM_LIST = [
@@ -52,6 +55,7 @@ def StartProgram( name ):
 	KillCurrentProgram()
 	CURRENT_PROGRAM = subprocess.Popen( args = ["python3", f"{name}.py"], stdout = subprocess.PIPE )
 	CURRENT_MODULE = importlib.import_module( name )
+	trigger.when_pressed = CURRENT_MODULE.PullTrigger
 
 @eel.expose
 def ChangeFunction( func ):
@@ -63,10 +67,6 @@ def GetFunctionList():
     for func in CURRENT_MODULE.FUNCTIONS:
         funclist.append( func[0] )
     return funclist
-
-TRIGGER_BUTTON = 26
-trigger = Button( TRIGGER_BUTTON, False )
-trigger.when_pressed = CURRENT_MODULE.PullTrigger
 
 if __name__ == "__main__":
 	eel.init( "web" )

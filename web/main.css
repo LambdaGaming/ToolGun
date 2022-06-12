@@ -120,9 +120,10 @@ body {
 }
 
 .statsPanelRight {
-	width:50%;
+	position:absolute;
+	left:50%;
 	float:right;
-	
+	padding-top:7px;
 	padding-left:15px;
 }
 

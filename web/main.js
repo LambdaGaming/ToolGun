@@ -36,7 +36,7 @@ function UpdatePerformanceStats() {
 
 function UpdateCurrentFunction() {
 	var text = document.getElementById( "currentFunction" )
-	text.innerHTML = sessionStorage.getItem( "CurrentFunction" )
+	text.innerHTML = sessionStorage.getItem( "CurrentFunction" ) || "None"
 }
 
 function ToggleMute() {

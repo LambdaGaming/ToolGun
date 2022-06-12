@@ -6,9 +6,10 @@
 
 int triggerVal = 0;
 IRsend sender;
-const char *ssid = "MLJM-24";
-const char *password = "1504928e74";
+const char *ssid = "";
+const char *password = "";
 AsyncWebServer server( 80 );
+int CurrentAddress = 0;
 int CurrentCommand = 0;
 
 void setup()
@@ -33,13 +34,14 @@ void setup()
   Serial.println( WiFi.localIP() );
 
   server.on( "/fire", HTTP_POST, []( AsyncWebServerRequest *request ) {
-    sender.sendSamsung( 0x707, CurrentCommand, 0 );
+    sender.sendSamsung( CurrentAddress, CurrentCommand, 0 );
     request->send( 200, "text/plain", "OK" );
   } );
 
   server.on( "/change", HTTP_POST, []( AsyncWebServerRequest *request ) {
-    if ( request->hasParam( "command" ) )
+    if ( request->hasParam( "address" ) && request->hasParam( "command" ) )
     {
+      CurrentAddress = request->getParam( "address" )->value().toInt();
       CurrentCommand = request->getParam( "command" )->value().toInt();
     }
     request->send( 200, "text/plain", "OK" );

@@ -58,8 +58,8 @@ def StartProgram( name ):
 	trigger.when_pressed = CURRENT_MODULE.PullTrigger
 
 @eel.expose
-def ChangeData( func ):
-    CURRENT_MODULE.ChangeData( func )
+def ChangeData( index ):
+    CURRENT_MODULE.ChangeData( index )
 
 @eel.expose
 def GetDataList():

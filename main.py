@@ -39,6 +39,7 @@ def ToggleMute():
 
 @eel.expose
 def Shutdown():
+	KillCurrentProgram()
 	sys.exit()
 
 @eel.expose
@@ -47,6 +48,7 @@ def GetProgramList():
 
 def KillCurrentProgram():
 	if CURRENT_PROGRAM is not None:
+		CURRENT_MODULE.Close()
 		CURRENT_PROGRAM.terminate()
 
 @eel.expose
@@ -55,6 +57,7 @@ def StartProgram( name ):
 	KillCurrentProgram()
 	CURRENT_PROGRAM = subprocess.Popen( args = ["python3", f"{name}.py"], stdout = subprocess.PIPE )
 	CURRENT_MODULE = importlib.import_module( name )
+	CURRENT_MODULE.Open()
 	trigger.when_pressed = CURRENT_MODULE.PullTrigger
 
 @eel.expose

@@ -1,8 +1,16 @@
-# These are the minimal variables and functions required for a tool.
+# These are the minimal variables and functions required for a tool. Please note that even if you don't use all of the functions, they must remain in the code!
 
 DATA = [
-    ["Example Name", "Example data"] # The name MUST be a string, but the data can be anything you'd like as it's only used by the tool itself
+    ["Example Name", "Example data"] # The name needs to be a string, but the data can be anything you'd like as it's only used by this script
 ]
+
+# Gets called immediately after the script loads
+def Open():
+	pass
+
+# Gets called immediately before the script is terminated
+def Close():
+	pass
 
 # Gets called when the trigger button is pressed
 def PullTrigger():

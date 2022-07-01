@@ -2,7 +2,7 @@ import requests
 
 ADDRESS = "707"
 
-FUNCTIONS = [
+DATA = [
     ["Power", "2"], # [Name, IR command in base 10]
     ["Source", "1"],
     ["1", "4"],
@@ -53,8 +53,8 @@ def PullTrigger():
     requests.post( "http://192.168.1.196/fire" )
     # TODO: Sound effects
 
-def ChangeFunction( func ):
-    requests.post( f"http://192.168.1.196/change?address={ADDRESS}&command={FUNCTIONS[func][1]}" )
+def ChangeData( func ):
+    requests.post( f"http://192.168.1.196/change?address={ADDRESS}&command={DATA[func][1]}" )
 
 if __name__ == "__main__":
     while True:

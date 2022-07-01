@@ -13,7 +13,6 @@
 			<span id="time" class="time"></span>
 		</div>
 		<div class="navPanel">
-			<!--Placeholder text until Phase III-->
 			<span class="navPanelTextLeft">&#60; <a id=navPanelLeft href="" onclick="">Back to Counter-Strike</a></span>
 			<span><a id=navPanelRight href="" onclick="">Team Fortress 2</a> &#62;</span>
 		</div>
@@ -30,7 +29,7 @@
 				RAM: <span id="ramstats">0%</span><br>
 			</div>
 			<div class="statsPanelRight">
-				Selected Function: <span id="currentFunction"></span>
+				Selected Data: <span id="currentData"></span>
 			</div>
 		</div>
 		<div class="optionsPanel">
@@ -44,7 +43,7 @@
 		setInterval( UpdateTime, 1000 )
 		UpdateScrollText()
 		UpdateVolume()
-		UpdateCurrentFunction()
+		UpdateCurrentData()
 		setInterval( UpdatePerformanceStats, 1000 )
 	</script>
 </html>

@@ -34,9 +34,9 @@ function UpdatePerformanceStats() {
 	} )
 }
 
-function UpdateCurrentFunction() {
-	var text = document.getElementById( "currentFunction" )
-	text.innerHTML = sessionStorage.getItem( "CurrentFunction" ) || "None"
+function UpdateCurrentData() {
+	var text = document.getElementById( "currentData" )
+	text.innerHTML = sessionStorage.getItem( "CurrentData" ) || "None"
 }
 
 function ToggleMute() {
@@ -66,16 +66,16 @@ function UpdateProgramList() {
 	} )
 }
 
-function UpdateFunctionList() {
+function UpdateDataList() {
 	var list = document.getElementById( "fileContainer" )
-	eel.GetFunctionList()( n => {
+	eel.GetDataList()( n => {
 		for ( var i = 0; i < n.length; i++ ) ( function( i ) {
 			var a = document.createElement( "a" )
 			var textnode = document.createTextNode( n[i] )
 			a.appendChild( textnode )
 			a.addEventListener( "click", function() {
-				eel.ChangeFunction( i )
-				sessionStorage.setItem( "CurrentFunction", n[i] )
+				eel.ChangeData( i )
+				sessionStorage.setItem( "CurrentData", n[i] )
 				location.href = "main.html"
 			} )
 			list.appendChild( a )

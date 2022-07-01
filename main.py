@@ -58,13 +58,13 @@ def StartProgram( name ):
 	trigger.when_pressed = CURRENT_MODULE.PullTrigger
 
 @eel.expose
-def ChangeFunction( func ):
-    CURRENT_MODULE.ChangeFunction( func )
+def ChangeData( func ):
+    CURRENT_MODULE.ChangeData( func )
 
 @eel.expose
-def GetFunctionList():
+def GetDataList():
     funclist = []
-    for func in CURRENT_MODULE.FUNCTIONS:
+    for func in CURRENT_MODULE.DATA:
         funclist.append( func[0] )
     return funclist
 

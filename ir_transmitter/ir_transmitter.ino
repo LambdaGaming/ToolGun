@@ -1,4 +1,5 @@
 #include <ESPAsyncWebServer.h>
+#include <ESPmDNS.h>
 #include <IRremote.h>
 #include <WiFi.h>
 
@@ -21,6 +22,7 @@ void setup()
   Serial.print( "Connecting to "  );
   Serial.println( ssid );
   WiFi.begin( ssid, password );
+  MDNS.begin( "toolgunremote" );
 
   while ( WiFi.status() != WL_CONNECTED )
   {

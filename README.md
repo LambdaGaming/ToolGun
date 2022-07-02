@@ -9,13 +9,13 @@ Fully working Garry's Mod toolgun using a Raspberry Pi.
 - Scrolling text that displays the title of currently selected tool
 - CPU and RAM usage stat
 - CPU temperature stat
-- Currently selected program data
-- File menu - Displays system and program-specific data options
-- Open menu - Displays list of programs
+- Currently selected tool data
+- File menu - Displays system and tool-specific data options
+- Open menu - Displays list of tools
 - Quit button
 
 ## Tools
-Unfortunately this tool gun is incapable of defying the laws of physics, but there are still lots of things to do with it. The main functionality of the tool gun comes from separate Python programs called tools, which are found in the Open menu. Every tool is designed to perform a single function, but the data that gets input into the function can be changed via the File menu. For example, the TV remote tool can only transmit IR codes and nothing else, but the specific code that gets sent can be configured. Much like the game, activating the tool with the selected data is done by pulling the trigger, which in this case is a simple GPIO button. By default, the tool gun only comes with a few tools, but you can easily create your own using the base provided.
+Unfortunately, this tool gun is incapable of defying the laws of physics, but there are still lots of things to do with it. The main functionality of the tool gun comes from separate Python programs called tools, which are found in the Open menu. Every tool is designed to perform a single function, but the data that gets input into the function can be changed via the File menu. For example, the TV remote tool can only transmit IR codes and nothing else, but the specific code that gets sent can be configured. Much like the game, activating the tool with the selected data is done by pulling the trigger, which in this case is a simple GPIO button. By default, the tool gun only comes with a few tools, but you can easily create your own using the base provided.
 
 ### Current List of Tools
 - Smart TV Remote

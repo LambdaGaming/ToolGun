@@ -40,7 +40,7 @@ def ToggleMute():
 def Shutdown():
 	KillCurrentProgram()
 	keyboard = Controller()
-	keyboard.press( Key.alt ) # HACK: This is the best way to close the browser window I can find since eel doesn't support it and javascript blocks it
+	keyboard.press( Key.alt ) # HACK: This is the best way to close the browser window I can find since all other methods are either unsupported or blocked
 	keyboard.press( Key.f4 )
 	keyboard.release( Key.alt )
 	keyboard.release( Key.f4 )

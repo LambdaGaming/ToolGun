@@ -157,8 +157,16 @@ body {
 
 .fileContainer {
 	position:relative;
+	width:50%;
 	height:203px;
+	left:25%;
+	text-align:center;
 	background-color:#00000078;
+	overflow:scroll;
+}
+
+.fileContainer::-webkit-scrollbar {
+	display:none;
 }
 
 .fileContainer a {
@@ -167,6 +175,7 @@ body {
 	text-decoration:none;
 	margin:10px;
 	cursor:pointer;
+	display:block;
 }
 
 .fileContainer a:hover {

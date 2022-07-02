@@ -21,8 +21,3 @@ def PullTrigger():
 # Gets called when the current data changes; The index parameter is the index of the selected value in the data array
 def ChangeData( index ):
     pass
-
-# Main function that keeps the script alive so that its functions can be called
-if __name__ == "__main__":
-    while True:
-        pass

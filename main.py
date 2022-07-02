@@ -9,7 +9,6 @@ import subprocess
 TRIGGER_BUTTON = 26
 trigger = Button( TRIGGER_BUTTON, False )
 
-CURRENT_PROGRAM = None
 CURRENT_MODULE = importlib.import_module( "tool_base" )
 TOOL_LIST = []
 
@@ -38,7 +37,6 @@ def ToggleMute():
 
 @eel.expose
 def Shutdown():
-	KillCurrentProgram()
 	keyboard = Controller()
 	keyboard.press( Key.alt ) # HACK: This is the best way to close the browser window I can find since all other methods are either unsupported or blocked
 	keyboard.press( Key.f4 )
@@ -58,16 +56,10 @@ def PreloadTools():
 def GetToolList():
 	return TOOL_LIST
 
-def KillCurrentProgram():
-	if CURRENT_PROGRAM is not None:
-		CURRENT_MODULE.Close()
-		CURRENT_PROGRAM.terminate()
-
 @eel.expose
 def ChangeTool( name ):
-	global CURRENT_PROGRAM, CURRENT_MODULE
-	KillCurrentProgram()
-	CURRENT_PROGRAM = subprocess.Popen( args = ["python3", f"{name}.py"], stdout = subprocess.PIPE )
+	global CURRENT_MODULE
+	CURRENT_MODULE.Close()
 	CURRENT_MODULE = importlib.import_module( name )
 	CURRENT_MODULE.Open()
 	trigger.when_pressed = CURRENT_MODULE.PullTrigger

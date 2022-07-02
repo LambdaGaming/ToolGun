@@ -58,12 +58,7 @@ def Close():
     pass
 
 def PullTrigger():
-    requests.post( "http://192.168.1.196/fire" )
-    # TODO: Sound effects
+    requests.post( "http://toolgunremote.local/fire" )
 
 def ChangeData( index ):
-    requests.post( f"http://192.168.1.196/change?address={ADDRESS}&command={DATA[index][1]}" )
-
-if __name__ == "__main__":
-    while True:
-        pass
+    requests.post( f"http://toolgunremote.local/change?address={ADDRESS}&command={DATA[index][1]}" )

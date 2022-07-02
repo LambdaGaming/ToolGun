@@ -2,7 +2,7 @@ import requests
 
 NAME = "Smart TV Remote"
 
-ADDRESS = "707"
+ADDRESS = "1799"
 
 DATA = [
     ["Power", "2"], # [Name, IR command in base 10]

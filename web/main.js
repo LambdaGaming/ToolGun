@@ -49,15 +49,15 @@ function Shutdown() {
 	close()
 }
 
-function UpdateProgramList() {
-	var list = document.getElementById( "programList" )
-	eel.GetProgramList()( n => {
+function UpdateToolList() {
+	var list = document.getElementById( "toolList" )
+	eel.GetToolList()( n => {
 		for ( var i = 0; i < n.length; i++ ) ( function( i ) {
 			var a = document.createElement( "a" )
 			var textnode = document.createTextNode( n[i][0] )
 			a.appendChild( textnode )
 			a.addEventListener( "click", function() {
-				eel.StartProgram( n[i][1] )
+				eel.ChangeTool( n[i][1] )
 				sessionStorage.setItem( "CurrentTitle", n[i][0] )
 				location.href = "main.html"
 			} )

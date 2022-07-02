@@ -1,5 +1,7 @@
 # These are the minimal variables and functions required for a tool. Please note that even if you don't use all of the functions, they must remain in the code!
 
+NAME = "Base Tool" # Name of the tool that gets displayed in the UI
+
 DATA = [
     ["Example Name", "Example data"] # The name needs to be a string, but the data can be anything you'd like as it's only used by this script
 ]

@@ -1,6 +1,8 @@
 import eel
 import importlib
 from gpiozero import Button
+import os
+from pathlib import Path
 import psutil
 import subprocess
 import sys
@@ -9,10 +11,8 @@ TRIGGER_BUTTON = 26
 trigger = Button( TRIGGER_BUTTON, False )
 
 CURRENT_PROGRAM = None
-CURRENT_MODULE = importlib.import_module( "program_base" )
-PROGRAM_LIST = [
-	["Smart TV Remote", "program_ir"]
-]
+CURRENT_MODULE = importlib.import_module( "tool_base" )
+TOOL_LIST = []
 
 @eel.expose
 def IsMuted():
@@ -42,9 +42,17 @@ def Shutdown():
 	KillCurrentProgram()
 	sys.exit()
 
+# Imports all tools to get their names, might also help with performance when tools get switched
+def PreloadTools():
+	for file in os.listdir():
+		if os.path.isfile( file ) and "tool_" in file and file != "tool_base.py":
+			filename = file.split( '.' )[0]
+			tempmodule = importlib.import_module( filename )
+			TOOL_LIST.append( [tempmodule.NAME, filename] )
+
 @eel.expose
-def GetProgramList():
-	return PROGRAM_LIST
+def GetToolList():
+	return TOOL_LIST
 
 def KillCurrentProgram():
 	if CURRENT_PROGRAM is not None:
@@ -52,7 +60,7 @@ def KillCurrentProgram():
 		CURRENT_PROGRAM.terminate()
 
 @eel.expose
-def StartProgram( name ):
+def ChangeTool( name ):
 	global CURRENT_PROGRAM, CURRENT_MODULE
 	KillCurrentProgram()
 	CURRENT_PROGRAM = subprocess.Popen( args = ["python3", f"{name}.py"], stdout = subprocess.PIPE )
@@ -72,5 +80,6 @@ def GetDataList():
     return funclist
 
 if __name__ == "__main__":
+	PreloadTools()
 	eel.init( "web" )
 	eel.start( "main.html", size = ( 256, 256 ), close_callback = lambda *args: None )

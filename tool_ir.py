@@ -1,5 +1,7 @@
 import requests
 
+NAME = "Smart TV Remote"
+
 ADDRESS = "707"
 
 DATA = [
@@ -48,6 +50,12 @@ DATA = [
     ["Pause", "74"],
     ["Fast Forward", "72"]
 ]
+
+def Open():
+    pass
+
+def Close():
+    pass
 
 def PullTrigger():
     requests.post( "http://192.168.1.196/fire" )

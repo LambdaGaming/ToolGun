@@ -1,11 +1,10 @@
 import eel
-import importlib
 from gpiozero import Button
+import importlib
 import os
-from pathlib import Path
 import psutil
+from pynput.keyboard import Key, Controller
 import subprocess
-import sys
 
 TRIGGER_BUTTON = 26
 trigger = Button( TRIGGER_BUTTON, False )
@@ -40,7 +39,12 @@ def ToggleMute():
 @eel.expose
 def Shutdown():
 	KillCurrentProgram()
-	sys.exit()
+	keyboard = Controller()
+	keyboard.press( Key.alt ) # HACK: This is the best way to close the browser window I can find since eel doesn't support it and javascript blocks it
+	keyboard.press( Key.f4 )
+	keyboard.release( Key.alt )
+	keyboard.release( Key.f4 )
+	exit()
 
 # Imports all tools to get their names, might also help with performance when tools get switched
 def PreloadTools():

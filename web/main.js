@@ -44,11 +44,6 @@ function ToggleMute() {
 	UpdateVolume()
 }
 
-function Shutdown() {
-	eel.Shutdown()
-	close()
-}
-
 function UpdateToolList() {
 	var list = document.getElementById( "toolList" )
 	eel.GetToolList()( n => {

@@ -29,12 +29,12 @@ An extra Python program is included that allows you to use a joystick like a mou
 These are required for basic functionality of the menu and main program.
 - Raspberry Pi running Raspberry Pi OS or similar distribution (Works on the 400, other versions haven't been tested but should also work)
 - Python 3.7+
-- The following Python modules: eel, gpiozero, psutil
+- The following Python modules: eel, gpiozero, psutil, pynput
 - Chromium Browser (For eel module)
 
 ## Extra Functionality
 These are also required if you want to use the program as intended with default tools and extra hardware functionality.
-- The following Python modules: requests, pynput
+- The following Python modules: requests
 - ESP32 (Used for infrared function, any other WiFi-enabled microcontroller capable of running Arduino code should work too as long as you make the proper adjustments to the code)
 - The following Arduino libraries: ESPAsyncWebServer, IRremote, WiFi
 - Various electronic componenents for trigger, IR transmitter, joystick mouse, and rotary encoder scroll wheel (Specific part list and diagrams coming soon)

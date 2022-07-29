@@ -78,4 +78,9 @@ def GetDataList():
 if __name__ == "__main__":
 	PreloadTools()
 	eel.init( "web" )
-	eel.start( "main.html", size = ( 256, 256 ), close_callback = lambda *args: None )
+	eel.start(
+		"main.html",
+		size = ( 256, 256 ),
+		close_callback = lambda *args: None,
+		cmdline_args = ["--force-device-scale-factor=1.25", "--start-maximized"] # Scale factor might need changed depending on the size of your screen
+	)

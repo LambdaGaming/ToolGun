@@ -23,6 +23,7 @@ void setup()
   Serial.println( ssid );
   WiFi.begin( ssid, password );
   MDNS.begin( "toolgunremote" );
+  pinMode( LED_BUILTIN, OUTPUT );
 
   while ( WiFi.status() != WL_CONNECTED )
   {
@@ -36,8 +37,10 @@ void setup()
   Serial.println( WiFi.localIP() );
 
   server.on( "/fire", HTTP_POST, []( AsyncWebServerRequest *request ) {
+    digitalWrite( LED_BUILTIN, HIGH );
     sender.sendSamsung( CurrentAddress, CurrentCommand, 0 );
     request->send( 200, "text/plain", "OK" );
+    digitalWrite( LED_BUILTIN, LOW );
   } );
 
   server.on( "/change", HTTP_POST, []( AsyncWebServerRequest *request ) {

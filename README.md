@@ -21,15 +21,5 @@ Unfortunately, this tool gun is incapable of defying the laws of physics, but th
 - Smart TV Remote
   - Sends signals to an ESP32 running a server that outputs the selected data as an IR signal for Samsung smart TVs
 
-## Hardware
-An extra Python program is included that allows you to use a joystick like a mouse, and a rotary encoder like a scroll wheel. More info about where they get mounted and how they are wired can be found in the requirements section below.
-
-# Requirements
-For full functionality with default tools, everything listed below is required.
-- Raspberry Pi running Raspberry Pi OS or similar distribution (Pi 4 is recommended for best performance, but any version should work)
-- Python 3.7+
-- The following Python modules: eel, gpiozero, psutil, pynput, requests
-- Chromium Browser (For eel module)
-- ESP32 (Used for infrared function, any other WiFi-enabled, Arduino-compatible microcontroller should work as long as you make the proper adjustments to the code)
-- The following Arduino libraries: ESPAsyncWebServer, IRremote, WiFi
-- Various electronic componenents for trigger, IR transmitter, joystick mouse, and rotary encoder scroll wheel (Specific part list and diagrams coming soon)
+# Setup
+If you want to make a tool gun yourself, I layed out everything you need in [SETUP.md](SETUP.md).

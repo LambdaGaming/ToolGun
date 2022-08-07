@@ -1,3 +1,8 @@
+# Unused script for controlling mouse movements using a thumb joystick and an MCP3008 analog to digital converter.
+# My original plan was to add a joystick and rotary dial for mouse and scrolling functions, but the idea was
+# scrapped due to it being too complex to put together and other components (mostly the screen) being in the way.
+# I'm leaving it here in case someone wants to use it. I can't guarantee it will work though.
+
 from gpiozero import MCP3008, Button as GPIOButton
 from pynput.mouse import Button, Controller
 

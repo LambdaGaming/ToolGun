@@ -32,9 +32,9 @@ The Pi cannot detect the screen as a display device by default, so you will have
 	```
 	Save the file and exit nano.
 
-# [ESP32 Microcontroller](https://www.amazon.com/gp/product/B0718T232Z/)
-Cheap but powerful microcontroller used to transmit IR data for tools that use it. Communicates with the Pi via Wi-Fi and hosts a local server with the domain `toolgunremote.local`. Any Wi-Fi-enabled microcontroller capable of running Arduino code will theoretically work, but I chose the ESP32 because of its small form factor and low price. Eventually I hope to make the ESP32 communicate with the Pi via USB or GPIO to remove the network requirement.  
-The ir_transmitter program will need uploaded to the ESP32 via the Arduino IDE or some other Arduino-compatible IDE. Make sure you include your Wifi details in the code before compiling. The only thing that gets wired to the ESP32 besides USB for power are the infrared and cyan LEDs.
+## [ESP32 Microcontroller](https://www.amazon.com/gp/product/B0718T232Z/)
+Cheap but powerful microcontroller used to transmit IR data for tools that use it. Communicates with the Pi via USB. Most arduino-compatible microcontrollers compatible with the IRremote library will theoretically work, but I chose the ESP32 because of its small form factor, low price, and high performance compared to other boards.  
+The ir_transmitter program will need uploaded to the ESP32 via the Arduino IDE or some other Arduino-compatible IDE. The only thing that gets wired to the ESP32 besides the USB cable are the infrared and cyan LEDs.
 
 
 
@@ -51,7 +51,7 @@ Chromium also comes with the OS by default. You can install a different web brow
 ## IR Transmitter Program
 Located in the same repository as the main program, this program is used with the ESP32 to run the infrared circuit. To compile and upload it, you will need to download the Arduino IDE on your PC. Once you have the IDE installed, you will also need to install the [ESP32 board](https://randomnerdtutorials.com/installing-the-esp32-board-in-arduino-ide-windows-instructions/), as well as the ESPAsyncWebServer and IRremote libraries.
 
-# Assembly
+# Assembly:
 ## Main Body
 The main body of the tool gun was 3D printed using [models created by CPomeroy.](https://www.thingiverse.com/thing:4872305) I used black PLA with a 20% infill for everything and it holds up nicely. The grip should technically be made out of wood but I didn't feel like doing that for various reasons.  
 All of these parts are superglued together, except for the screen mount base, which is screwed to the main body.

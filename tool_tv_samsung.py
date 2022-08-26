@@ -3,7 +3,7 @@ import time
 
 ser = None
 
-NAME = "Smart TV Remote"
+NAME = "Samsung TV Remote"
 ADDRESS = "1799"
 PROTOCOL = "Samsung"
 DATA = [

@@ -1,4 +1,6 @@
-# These are the minimal variables and functions required for a tool. Please note that even if you don't use all of the functions, they must remain in the code!
+# These are the minimal variables and functions required for a tool.
+# Even if you don't use all of the functions, they must remain in the code to prevent crashes.
+# The file name of your tool must start with "tool_" for it to be recognized by the program.
 
 NAME = "Base Tool" # Name of the tool that gets displayed in the UI
 

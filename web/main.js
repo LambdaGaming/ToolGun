@@ -54,6 +54,7 @@ function UpdateToolList() {
 			a.addEventListener( "click", function() {
 				eel.ChangeTool( n[i][1] )
 				sessionStorage.setItem( "CurrentTitle", n[i][0] )
+				sessionStorage.removeItem( "CurrentData" )
 				location.href = "main.html"
 			} )
 			list.appendChild( a )

@@ -18,14 +18,14 @@ def RandomMultiColor():
 
 NAME = "Custom Fairy String Remote"
 DATA = [
-	["Red", "16711680"],
-	["Green", "65280"],
-	["Blue", "255"],
-	["Cyan", "65535"],
-	["Yellow", "16776960"],
-	["Magenta", "16711935"],
-	["Black", "0"],
-	["White", "16777215"],
+	["Red", "color=16711680"],
+	["Green", "color=65280"],
+	["Blue", "color=255"],
+	["Cyan", "color=65535"],
+	["Yellow", "color=16776960"],
+	["Magenta", "color=16711935"],
+	["Black", "color=0"],
+	["White", "color=16777215"],
 	["Random Single Color", RandomSingleColor],
 	["Random Multi Color", RandomMultiColor]
 ]
@@ -38,10 +38,10 @@ def Close():
 
 def PullTrigger():
 	global SelectedData
-	if type( DATA[SelectedData] ) is function:
-		requests.post( f"http://colorselector.local/state?{DATA[SelectedData]()}" )
+	if callable( DATA[SelectedData][1] ):
+		requests.post( f"http://colorselector.local/state?{DATA[SelectedData][1]()}" )
 	else:
-		requests.post( f"http://colorselector.local/state?{DATA[SelectedData]}" )
+		requests.post( f"http://colorselector.local/state?{DATA[SelectedData][1]}" )
 
 def ChangeData( index ):
 	global SelectedData

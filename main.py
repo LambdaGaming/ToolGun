@@ -4,7 +4,11 @@ import os
 import psutil
 import subprocess
 from gpiozero import Button
+from pygame import mixer
 from pynput.keyboard import Key, Controller
+from random import randint
+
+mixer.init()
 
 TRIGGER_BUTTON = 26
 trigger = Button( TRIGGER_BUTTON, False )
@@ -52,6 +56,11 @@ def PreloadTools():
 			tempmodule = importlib.import_module( filename )
 			TOOL_LIST.append( [tempmodule.NAME, filename] )
 
+def PullTrigger():
+	CURRENT_MODULE.PullTrigger()
+	mixer.music.load( f"sounds/shoot{randint( 1, 2 )}.wav" )
+	mixer.music.play()
+
 @eel.expose
 def GetToolList():
 	return TOOL_LIST
@@ -64,21 +73,25 @@ def ChangeTool( name ):
 	CURRENT_MODULE = importlib.import_module( name )
 	if "Open" in dir( CURRENT_MODULE ):
 		CURRENT_MODULE.Open()
-	trigger.when_pressed = CURRENT_MODULE.PullTrigger
+	mixer.music.load( "sounds/select.wav" )
+	mixer.music.play()
 
 @eel.expose
 def ChangeData( index ):
-    CURRENT_MODULE.ChangeData( index )
+	CURRENT_MODULE.ChangeData( index )
+	mixer.music.load( "sounds/select.wav" )
+	mixer.music.play()
 
 @eel.expose
 def GetDataList():
-    funclist = []
-    for func in CURRENT_MODULE.DATA:
-        funclist.append( func[0] )
-    return funclist
+	funclist = []
+	for func in CURRENT_MODULE.DATA:
+		funclist.append( func[0] )
+	return funclist
 
 if __name__ == "__main__":
 	PreloadTools()
+	trigger.when_pressed = PullTrigger
 	eel.init( "web" )
 	eel.start(
 		"main.html",

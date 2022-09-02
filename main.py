@@ -1,10 +1,10 @@
 import eel
-from gpiozero import Button
 import importlib
 import os
 import psutil
-from pynput.keyboard import Key, Controller
 import subprocess
+from gpiozero import Button
+from pynput.keyboard import Key, Controller
 
 TRIGGER_BUTTON = 26
 trigger = Button( TRIGGER_BUTTON, False )
@@ -59,9 +59,11 @@ def GetToolList():
 @eel.expose
 def ChangeTool( name ):
 	global CURRENT_MODULE
-	CURRENT_MODULE.Close()
+	if "Close" in dir( CURRENT_MODULE ):
+		CURRENT_MODULE.Close()
 	CURRENT_MODULE = importlib.import_module( name )
-	CURRENT_MODULE.Open()
+	if "Open" in dir( CURRENT_MODULE ):
+		CURRENT_MODULE.Open()
 	trigger.when_pressed = CURRENT_MODULE.PullTrigger
 
 @eel.expose

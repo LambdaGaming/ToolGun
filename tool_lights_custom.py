@@ -30,12 +30,6 @@ DATA = [
 	["Random Multi Color", RandomMultiColor]
 ]
 
-def Open():
-	pass
-
-def Close():
-	pass
-
 def PullTrigger():
 	global SelectedData
 	if callable( DATA[SelectedData][1] ):

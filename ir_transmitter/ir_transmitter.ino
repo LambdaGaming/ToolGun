@@ -15,7 +15,6 @@ String CurrentProtocol = "";
 
 void sendIR()
 {
-	CurrentProtocol.toLowerCase();
 	if ( CurrentProtocol == "nec" ) {
   	sender.sendNEC( CurrentAddress, CurrentCommand, 0 );
 	} else if ( CurrentProtocol == "samsung" ) {

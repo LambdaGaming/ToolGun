@@ -1,20 +1,17 @@
+#include <ESPAsyncWebServer.h>
+#include <ESPmDNS.h>
 #include <IRremote.h>
+#include <WiFi.h>
 
 #define IR_SEND_PIN 32
 
 IRsend sender;
+const char *ssid = ""; // Wifi name
+const char *password = ""; // Wifi password
+AsyncWebServer server( 80 );
 uint16_t CurrentAddress = 0;
 uint16_t CurrentCommand = 0;
 String CurrentProtocol = "";
-String input[2];
-
-void parseInput( String str )
-{
-	int index = str.indexOf( ':' );
-	int index2 = str.indexOf( ':', index + 1 );
-	input[0] = str.substring( 0, index );
-	input[1] = str.substring( index + 1, index2 );
-}
 
 void sendIR()
 {
@@ -64,33 +61,46 @@ void sendIR()
 
 void setup()
 {
-	IrSender.begin( IR_SEND_PIN );
-	Serial.begin( 115200 );
-	pinMode( LED_BUILTIN, OUTPUT );
+  IrSender.begin( IR_SEND_PIN );
+  Serial.begin( 115200 );
+  delay( 10 );
+  Serial.println();
+  Serial.print( "Connecting to "  );
+  Serial.println( ssid );
+  WiFi.begin( ssid, password );
+  MDNS.begin( "toolgunremote" );
+  pinMode( LED_BUILTIN, OUTPUT );
+
+  while ( WiFi.status() != WL_CONNECTED )
+  {
+    delay( 500 );
+    Serial.print( "." );
+  }
+
+  Serial.println();
+  Serial.println( "WiFi connected." );
+  Serial.print( "IP address: " );
+  Serial.println( WiFi.localIP() );
+
+  server.on( "/fire", HTTP_POST, []( AsyncWebServerRequest *request ) {
+    digitalWrite( LED_BUILTIN, HIGH );
+    sendIR();
+    request->send( 200, "text/plain", "OK" );
+    digitalWrite( LED_BUILTIN, LOW );
+  } );
+
+  server.on( "/change", HTTP_POST, []( AsyncWebServerRequest *request ) {
+    if ( request->hasParam( "address" ) )
+      CurrentAddress = request->getParam( "address" )->value().toInt();
+    if ( request->hasParam( "command" ) )
+      CurrentCommand = request->getParam( "command" )->value().toInt();
+    if ( request->hasParam( "protocol" ) )
+      CurrentProtocol = request->getParam( "protocol" )->value();
+
+    request->send( 200, "text/plain", "OK" );
+  } );
+
+  server.begin();
 }
 
-void loop()
-{
-  	if ( Serial.available() )
-  	{
-		parseInput( Serial.readString() );
-		if ( input[0] == "fire" )
-		{
-	    digitalWrite( LED_BUILTIN, HIGH );
-		  sendIR();
-		  digitalWrite( LED_BUILTIN, LOW );
-		}
-		else if ( input[0] == "address" )
-		{
-			CurrentAddress = input[1].toInt();
-		}
-		else if ( input[0] == "command" )
-		{
-			CurrentCommand = input[1].toInt();
-		}
-		else if ( input[0] == "protocol" )
-		{
-			CurrentProtocol = input[1];
-		}
-	}
-}
+void loop() {}

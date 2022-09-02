@@ -1,7 +1,4 @@
-import serial
-import time
-
-ser = None
+import requests
 
 NAME = "Samsung TV Remote"
 ADDRESS = "1799"
@@ -53,24 +50,8 @@ DATA = [
 	["Fast Forward", "72"]
 ]
 
-def Open():
-	global ser
-	ser = serial.Serial( "/dev/ttyUSB0", 115200, timeout = 1 )
-	ser.setDTR( False )
-	time.sleep( 1 )
-	ser.flushInput()
-	ser.setDTR( True )
-	time.sleep( 2 )
-
-def Close():
-	pass
-
 def PullTrigger():
-	global ser
-	ser.write( "fire".encode() )
+	requests.post( "http://toolgunremote.local/fire" )
 
 def ChangeData( index ):
-	global ser
-	ser.write( ( "address:" + ADDRESS ).encode() )
-	ser.write( ( "command:" + DATA[index][1] ).encode() )
-	ser.write( ( "protocol" + PROTOCOL ).encode() )
+	requests.post( f"http://toolgunremote.local/change?address={ADDRESS}&command={DATA[index][1]}&protocol={PROTOCOL.lower()}" )

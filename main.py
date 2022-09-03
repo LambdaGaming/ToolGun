@@ -9,12 +9,11 @@ from pynput.keyboard import Key, Controller
 from random import randint
 
 mixer.init()
-
 TRIGGER_BUTTON = 26
 trigger = Button( TRIGGER_BUTTON, False )
-
 CURRENT_MODULE = importlib.import_module( "tool_base" )
 TOOL_LIST = []
+FULLSCREEN = False
 
 @eel.expose
 def IsMuted():
@@ -88,6 +87,14 @@ def GetDataList():
 	for func in CURRENT_MODULE.DATA:
 		funclist.append( func[0] )
 	return funclist
+
+@eel.expose
+def EnableFullScreen():
+	global FULLSCREEN
+	if not FULLSCREEN:
+		keyboard = Controller()
+		keyboard.press( Key.f11 )
+		FULLSCREEN = True
 
 if __name__ == "__main__":
 	PreloadTools()

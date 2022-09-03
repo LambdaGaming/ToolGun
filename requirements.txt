@@ -1,6 +1,5 @@
 eel
 gpiozero
 psutil
-pygame
 pynput
 requests

@@ -61,7 +61,7 @@ I covered the top of the screw with electrical tape to prevent exposing it to th
 The base of the screen mount was superglued, screwed, and taped into place. The tape is more for decoration since the screw and superglue are more than capable of holding the base down on their own. The mount that the screen fits into is one of the extra parts. The screen is hot glued to the top of the mount, where the bottom of the screen's circuit board is flat and contains no electronics. When hot gluing, apply the glue to the mount and gently press the screen into the glue. I don't recommend applying glue directly to the screen as the heat from the tip could cause damage. Superglue can also cause damage, especially if you ever attempt to remove the screen, so I don't recommend that either.
 
 ## Trigger
-The 3D printed trigger is held in place by a 12mm long screw, which is superglued in place and covered with electrical tape to hide it. The pushbutton for the trigger is pressed into a slot behind the trigger. The button is wired to the Pi, with positive going to a 3.3v pin and negative going to pin 26.
+The 3D printed trigger is held in place by a 12mm long screw, which is superglued in place and covered with electrical tape to hide it. The pushbutton for the trigger is pressed into a slot behind the trigger. The button is wired to the Pi, with positive going to pin 3 and negative going to ground.
 
 # Grip
 There's not much to do with the grip. I wrapped cloth tape around it 4 times and put 2 strips of masking tape vertically along the cloth tape on each side to match the original model.

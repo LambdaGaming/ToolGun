@@ -1,3 +1,23 @@
+function UpdateOpenScrollPos( save = false ) {
+	var open = document.getElementById( "toolList" )
+	if ( save ) {
+		sessionStorage.setItem( "OpenScrollPos", open.scrollTop )
+	}
+	else {
+		open.scrollTop = sessionStorage.getItem( "OpenScrollPos" ) || 0
+	}
+}
+
+function UpdateFileScrollPos( save = false ) {
+	var file = document.getElementById( "fileContainer" )
+	if ( save ) {
+		sessionStorage.setItem( "FileScrollPos", file.scrollTop )
+	}
+	else {
+		file.scrollTop = sessionStorage.getItem( "FileScrollPos" ) || 0
+	}
+}
+
 function UpdateTime() {
 	var date = new Date()
 	var timeElement = document.getElementById( "time" )

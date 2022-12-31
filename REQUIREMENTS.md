@@ -38,7 +38,7 @@ I used a small amount of copper wire to wrap around the cylinder. Ideally it sho
 Standard 5mm infrared transmitter LED. Make sure what you get is a transmitter and not a receiver. Transmitters can be clear or have a blueish tint. Receivers can be black or clear.
 
 # Mini Pushbutton
-Small 5mm pushbutton. The one I used was salvaged from a modified fairy light string that doesn't use it anymore, but there are plenty of places you can buy them. The size __MUST__ be 5mm or smaller. Anything larger will not fit in the slot behind the trigger.
+Small 5mm pushbutton. The one I used was salvaged from a circuit board to a cheap set of fairy lights, but there are plenty of places you can buy them. The size __MUST__ be 5mm (or smaller if they exist). Anything larger will not fit in the slot behind the trigger.
 
 # Misc Wires
 Various small wires are used for the IR LED and pushbutton. I don't know the specs of any of them since I've had them for years and don't know where they originally came from, but any small wire should be fine since there's not much power being sent through them.

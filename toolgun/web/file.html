@@ -17,8 +17,8 @@
 			<hr>
 		</div>
 		<div class="optionsPanel">
-			<button onclick="location.href = 'main.html'">Return</button>
-			<button onclick="location.href = 'open.html'">Open</button>
+			<button onclick="UpdateFileScrollPos( true ); location.href = 'main.html'">Return</button>
+			<button onclick="UpdateFileScrollPos( true ); location.href = 'open.html'">Open</button>
 			<button onclick="eel.Shutdown()">Quit</button>
 		</div>
 	</body>
@@ -27,5 +27,6 @@
 		setInterval( UpdateTime, 1000 )
 		UpdateVolume()
 		UpdateDataList()
+		setTimeout( UpdateFileScrollPos, 500 )
 	</script>
 </html>

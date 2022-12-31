@@ -23,7 +23,7 @@ The Pi cannot detect the screen as a display device by default, so you will have
 	```
 	Save the file and exit nano. The remaining steps below aren't required if your screen automatically recalibrates its touch feature for different orientations.
 3. Back in the terminal, type `sudo nano /usr/share/X11/xorg.conf.d/99-calibration.conf`.
-4. On line 4, reverse the last two numbers of the `Calibration` option.
+4. On line 4, swap the last two numbers of the `Calibration` option.
 5. On line 5, change the value of the `SwapAxes` option from 1 to 0.  
 6. Your config file should look something like this
 	```

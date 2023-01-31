@@ -16,7 +16,7 @@ def RandomMultiColor():
 		url += f"led{i}={rand}&"
 	return url
 
-NAME = "Custom Fairy String Remote"
+NAME = "LED Web Server Remote"
 DATA = [
 	["Red", "color=16711680"],
 	["Green", "color=65280"],

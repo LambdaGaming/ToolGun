@@ -8,7 +8,7 @@ I also ended up omitting certain components either to reduce the complexity of t
 The main program requires at least Python 3.7, which comes with Raspberry Pi OS by default, so you won't have to do anything there except install the required libraries, which you can do by opening the terminal, navigating to the tool gun directory, and entering `pip install -r requirements.txt`.
 
 ## [Main Program](https://github.com/lambdagaming/toolgun)
-The main tool gun program can be downloaded by typing `git clone https://github.com/lambdagaming/toolgun` in the terminal. Once you have it downloaded, simply navigate to the directory it was saved in and type `python main.py` in the terminal.
+The main tool gun program can be downloaded by typing `git clone https://github.com/lambdagaming/toolgun` in the terminal. Once you have it downloaded, simply navigate to the directory it was saved in and type `python main.py` in the terminal, or alternatively make the ToolGun.sh file executable and run it.
 
 ## Chromium Browser
 Chromium also comes with the OS by default. You can install a different web browser if you'd like, just make sure you leave Chromium installed, as it is required to run the main program's UI.

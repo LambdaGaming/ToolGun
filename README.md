@@ -1,5 +1,8 @@
 # Tool Gun
-Fully working Garry's Mod tool gun using a Raspberry Pi (and many other components).
+Fully working and customizable Garry's Mod tool gun using a Raspberry Pi (and many other components).
+
+<img src="graphics/ref1.jpg" width="28.25%"/>
+<img src="graphics/ref4.png"/>
 
 # Features
 ## UI

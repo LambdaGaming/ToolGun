@@ -27,6 +27,8 @@ Unfortunately, this tool gun is incapable of defying the laws of physics, but yo
   - Has presets for the [BrizLabs Fairy String Lights.](https://www.brizlabs.com/brizlabs-66ft-200-led-rgb-fairy-lights-remote-control) Uses the IR transmitter.
 - LED Web Server Remote
   - Has preset colors for [my LED Web Server.](https://github.com/LambdaGaming/LEDWebServer) The server is an ESP32 hooked up to the data wire of a BrizLabs fairy light string. It allows individual LEDs to be set to any color via an HTTP POST request.
+- Get Position
+  - Prints user's general location based on their IP (Only works if program was launched in a terminal)
 
 # Building Your Own
 If you want to make a tool gun yourself, everything you need is listed [here.](REQUIREMENTS.md) Once you have the required items, you can follow the setup instructions [here.](SETUP.md).  

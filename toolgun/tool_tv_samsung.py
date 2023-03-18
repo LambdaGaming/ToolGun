@@ -52,6 +52,8 @@ DATA = [
 
 def PullTrigger():
 	requests.post( "http://toolgunremote.local/fire" )
+	print( "Firing IR emitter..." )
 
 def ChangeData( index ):
 	requests.post( f"http://toolgunremote.local/change?address={ADDRESS}&command={DATA[index][1]}&protocol={PROTOCOL.lower()}" )
+	print( f"Changing data to {DATA[index][1]}" )

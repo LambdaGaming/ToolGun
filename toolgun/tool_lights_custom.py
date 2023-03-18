@@ -36,7 +36,9 @@ def PullTrigger():
 		requests.post( f"http://colorselector.local/state?{DATA[SelectedData][1]()}" )
 	else:
 		requests.post( f"http://colorselector.local/state?{DATA[SelectedData][1]}" )
+	print( "Applying color..." )
 
 def ChangeData( index ):
 	global SelectedData
 	SelectedData = index
+	print( f"Changing color to {DATA[SelectedData][0]}..." )

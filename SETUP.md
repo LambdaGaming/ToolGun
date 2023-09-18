@@ -5,7 +5,7 @@ I also ended up omitting certain components either to reduce the complexity of t
 
 # Software Setup
 ## [Main Program](https://github.com/lambdagaming/toolgun)
-The main tool gun program can be downloaded by typing `git clone https://github.com/lambdagaming/toolgun` in the terminal. Once you have it downloaded, navigate to the directory it was saved in and type `python toolgun/main.py` in the terminal, or alternatively make the ToolGun.sh file 
+The main tool gun program can be downloaded by typing `git clone https://github.com/lambdagaming/toolgun` in the terminal. Once you have it downloaded, navigate to the toolgun directory and type `python main.py` in the terminal, or alternatively make the ToolGun.sh file 
 executable and run it.
 
 ## Python 3.7+

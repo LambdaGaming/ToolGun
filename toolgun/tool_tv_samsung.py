@@ -1,3 +1,4 @@
+import eel
 import requests
 
 NAME = "Samsung TV Remote"
@@ -50,10 +51,27 @@ DATA = [
 	["Fast Forward", "72"]
 ]
 
+HTML = """
+	<style>
+		.fileContainer {
+			display: inline-grid;
+			grid-template-columns: repeat(auto-fit, 49%);
+			column-gap:2%;
+			row-gap:5px;
+			margin: 0;
+			padding: 0;
+		}
+	</style>
+"""
+
+for d in DATA:
+	HTML += f"<button onclick='SetRemoteData( {d[1]} )'>{d[0]}</button>"
+
 def PullTrigger():
 	requests.post( "http://toolgunremote.local/fire" )
 	print( "Firing IR emitter..." )
-
-def ChangeData( index ):
-	requests.post( f"http://toolgunremote.local/change?address={ADDRESS}&command={DATA[index][1]}&protocol={PROTOCOL.lower()}" )
-	print( f"Changing data to {DATA[index][1]}" )
+	
+@eel.expose
+def SetRemoteData( data ):
+	requests.post( f"http://toolgunremote.local/change?address={ADDRESS}&command={data}&protocol={PROTOCOL.lower()}" )
+	print( f"Changing data to {data}" )

@@ -46,22 +46,14 @@ function UpdatePerformanceStats() {
 	var cpustats = document.getElementById( "cpustats" )
 	var gpustats = document.getElementById( "gpustats" )
 	var ramstats = document.getElementById( "ramstats" )
+	var uptime = document.getElementById( "uptime" )
 
 	eel.GetPerformanceStats()( n => {
 		cpustats.innerHTML = `${n[0]}%`
 		gpustats.innerHTML = `${n[1]}c`
 		ramstats.innerHTML = `${n[2]}%`
+		uptime.innerHTML = n[3]
 	} )
-}
-
-function UpdateCurrentData() {
-	var text = document.getElementById( "currentData" )
-	text.innerHTML = sessionStorage.getItem( "CurrentData" ) || "None"
-}
-
-function ToggleMute() {
-	eel.ToggleMute()
-	UpdateVolume()
 }
 
 function UpdateToolList() {
@@ -74,27 +66,18 @@ function UpdateToolList() {
 			a.addEventListener( "click", function() {
 				eel.ChangeTool( n[i][1] )
 				sessionStorage.setItem( "CurrentTitle", n[i][0] )
-				sessionStorage.removeItem( "CurrentData" )
 				location.href = "main.html"
 			} )
 			list.appendChild( a )
+			var hr = document.createElement( "hr" )
+			list.appendChild( hr )
 		} )( i )
 	} )
 }
 
-function UpdateDataList() {
-	var list = document.getElementById( "fileContainer" )
-	eel.GetDataList()( n => {
-		for ( var i = 0; i < n.length; i++ ) ( function( i ) {
-			var a = document.createElement( "a" )
-			var textnode = document.createTextNode( n[i] )
-			a.appendChild( textnode )
-			a.addEventListener( "click", function() {
-				eel.ChangeData( i )
-				sessionStorage.setItem( "CurrentData", n[i] )
-				location.href = "main.html"
-			} )
-			list.appendChild( a )
-		} ) ( i )
+function UpdateFilePage() {
+	var page = document.getElementById( "fileContainer" )
+	eel.GetFilePage()( n => {
+		page.innerHTML = n
 	} )
 }

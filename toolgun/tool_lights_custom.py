@@ -1,8 +1,18 @@
+import eel
 import random
 import requests
 
-SelectedData = 0
+MODE = 0
+COLOR = ""
 LED_SIZE = 200
+
+@eel.expose
+def ChangeColorMode( mode, color = None ):
+	global MODE, COLOR
+	MODE = mode
+	if color is not None:
+		convert = int( f"0x{color}", 16 )
+		COLOR = f"color={convert}"
 
 def RandomSingleColor():
 	rand = random.randint( 0, 0xFFFFFF )
@@ -17,28 +27,18 @@ def RandomMultiColor():
 	return url
 
 NAME = "LED Web Server Remote"
-DATA = [
-	["Red", "color=16711680"],
-	["Green", "color=65280"],
-	["Blue", "color=255"],
-	["Cyan", "color=65535"],
-	["Yellow", "color=16776960"],
-	["Magenta", "color=16711935"],
-	["Black", "color=0"],
-	["White", "color=16777215"],
-	["Random Single Color", RandomSingleColor],
-	["Random Multi Color", RandomMultiColor]
-]
+HTML = """
+	<input type="color" id="colorPicker" oninput="eel.ChangeColorMode( 1, colorPicker.value.substring( 1 ) )">
+	<label for="colorPicker">Custom Color</label><br><br>
+	<button onclick="eel.ChangeColorMode( 2 )">Random Single Color</button><br><br>
+	<button onclick="eel.ChangeColorMode( 3 )">Random Multi Color</button>
+"""
 
 def PullTrigger():
-	global SelectedData
-	if callable( DATA[SelectedData][1] ):
-		requests.post( f"http://colorselector.local/state?{DATA[SelectedData][1]()}" )
-	else:
-		requests.post( f"http://colorselector.local/state?{DATA[SelectedData][1]}" )
+	global MODE, COLOR
+	if MODE == 2:
+		COLOR = RandomSingleColor()
+	elif MODE == 3:
+		COLOR = RandomMultiColor()
+	requests.post( f"http://colorselector.local/state?{COLOR}" )
 	print( "Applying color..." )
-
-def ChangeData( index ):
-	global SelectedData
-	SelectedData = index
-	print( f"Changing color to {DATA[SelectedData][0]}..." )

@@ -12,10 +12,7 @@
 			<img id="speaker" class="speaker" src="images/speaker_on.png">
 			<span id="time" class="time"></span>
 		</div>
-		<div id="fileContainer" class="fileContainer">
-			<a href="" onclick="ToggleMute()">Toggle Mute</a>
-			<hr>
-		</div>
+		<div id="fileContainer" class="fileContainer"></div>
 		<div class="optionsPanel">
 			<button onclick="UpdateFileScrollPos( true ); location.href = 'main.html'">Return</button>
 			<button onclick="UpdateFileScrollPos( true ); location.href = 'open.html'">Open</button>
@@ -26,7 +23,7 @@
 		UpdateTime()
 		setInterval( UpdateTime, 1000 )
 		UpdateVolume()
-		UpdateDataList()
+		UpdateFilePage()
 		setTimeout( UpdateFileScrollPos, 500 )
 	</script>
 </html>

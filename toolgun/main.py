@@ -3,6 +3,7 @@ import importlib
 import os
 import psutil
 import subprocess
+import time
 from gpiozero import Button
 from pygame import mixer
 from pynput.keyboard import Key, Controller
@@ -27,15 +28,11 @@ def GetPerformanceStats():
 	stats = [
 		psutil.cpu_percent(),
 		cputemp,
-		psutil.virtual_memory()[2]
+		psutil.virtual_memory()[2],
+		time.strftime( "%H:%M:%S", time.gmtime( time.monotonic() ) )
 	]
 	tempfile.close()
 	return stats
-
-@eel.expose
-def ToggleMute():
-	setting = IsMuted() and "unmute" or "mute"
-	subprocess.run( [f"amixer set Master {setting}"], shell = True )
 
 @eel.expose
 def Shutdown():
@@ -75,17 +72,8 @@ def ChangeTool( name ):
 	mixer.music.play()
 
 @eel.expose
-def ChangeData( index ):
-	CURRENT_MODULE.ChangeData( index )
-	mixer.music.load( "sounds/select.wav" )
-	mixer.music.play()
-
-@eel.expose
-def GetDataList():
-	funclist = []
-	for func in CURRENT_MODULE.DATA:
-		funclist.append( func[0] )
-	return funclist
+def GetFilePage():
+	return CURRENT_MODULE.HTML
 
 if __name__ == "__main__":
 	PreloadTools()

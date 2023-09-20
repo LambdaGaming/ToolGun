@@ -1,11 +1,11 @@
 # These are the minimal variables and functions required for a tool.
 # The file name of your tool must start with "tool_" for it to be recognized by the program.
 
-NAME = "Base Tool" # Name of the tool that gets displayed in the UI
+# Name of the tool that gets displayed in the UI
+NAME = "Base Tool"
 
-DATA = [
-    ["Example Name", "Example data"] # The name needs to be a string, but the data can be anything you'd like as it's only used by this script
-]
+# HTML code used in the file page. Ideally this should contain calls to JavaScript functions that link back to Python functions
+HTML = """<p style="color:red; text-align:center">Nothing to see here...</p>"""
 
 # Optional. Gets called immediately after the script loads
 def Open():
@@ -19,6 +19,4 @@ def Close():
 def PullTrigger():
     pass
 
-# Required. Gets called when the current data changes. The index parameter is the index of the selected value in the data array
-def ChangeData( index ):
-    pass
+# You can also define your own functions and expose them to eel, so they can be called through JavaScript

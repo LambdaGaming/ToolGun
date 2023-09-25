@@ -48,3 +48,6 @@ I used 4 different kinds of tape for various applications. Packaging tape and el
 
 # Glue
 I used superglue and hot glue for assembly. Any brand should be fine for both.
+
+# [Optional Battery](https://powerbank.zendure.com/products/supermini-5k)
+I found a small power bank called the Zendure SuperMini 5k that I use occasionally when I want go to wireless. It was the only one I could find that was small enough to mount somewhere on the gun and powerful enough to run everything. It was pretty cheap and fits nicely under the barrel. I used velcro straps to hold it in place. Due to its weight, I recommend using a wooden grip to help keep things evened out. I also recommend using a very short USB power cable, as anything longer than 1 foot seems to drop the voltage too much. The battery doesn't seem to be available on Amazon anymore, so I linked the official page.

@@ -2,7 +2,6 @@
 <html>
 	<head>
 		<link rel="stylesheet" href="main.css">
-		<script src="/eel.js"></script>
 		<script src="main.js"></script>
 	</head>
 	<body>
@@ -20,7 +19,7 @@
 			<span id="contentTitle" class="contentPanelText"></span>
 		</div>
 		<div class="crashPanel">
-			You have not crashed! <a href="" class="crashText" onclick="eel.Shutdown( true )">Click Here</a> to crash!
+			You have not crashed! <a href="" class="crashText" onclick="pywebview.api.Shutdown( true )">Click Here</a> to crash!
 		</div>
 		<div class="statsPanel">
 			<div class="statsPanelLeft">
@@ -35,7 +34,7 @@
 		<div class="optionsPanel">
 			<button onclick="location.href = 'file.html'">File</button>
 			<button onclick="location.href = 'open.html'">Open</button>
-			<button onclick="eel.Shutdown()">Quit</button>
+			<button onclick="pywebview.api.Shutdown()">Quit</button>
 		</div>
 	</body>
 	<script>

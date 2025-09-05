@@ -2,7 +2,6 @@
 <html>
 	<head>
 		<link rel="stylesheet" href="main.css">
-		<script src="/eel.js"></script>
 		<script src="main.js"></script>
 	</head>
 	<body>
@@ -18,7 +17,7 @@
 		<div class="optionsPanel">
 			<button onclick="UpdateOpenScrollPos( true ); location.href = 'main.html'">Return</button>
 			<button onclick="UpdateOpenScrollPos( true ); location.href = 'file.html'">File</button>
-			<button onclick="eel.Shutdown()">Quit</button>
+			<button onclick="pywebview.api.Shutdown()">Quit</button>
 		</div>
 	</body>
 	<script>

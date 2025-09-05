@@ -26,7 +26,7 @@ function UpdateTime() {
 
 function UpdateVolume() {
 	var speaker = document.getElementById( "speaker" )
-	eel.IsMuted()( n => {
+	pywebview.api.IsMuted()( n => {
 		if ( n ) {
 			speaker.src = "images/speaker_off.png"
 		}
@@ -48,7 +48,7 @@ function UpdatePerformanceStats() {
 	var ramstats = document.getElementById( "ramstats" )
 	var uptime = document.getElementById( "uptime" )
 
-	eel.GetPerformanceStats()( n => {
+	pywebview.api.GetPerformanceStats()( n => {
 		cpustats.innerHTML = `${n[0]}%`
 		gpustats.innerHTML = `${n[1]}c`
 		ramstats.innerHTML = `${n[2]}%`
@@ -58,13 +58,13 @@ function UpdatePerformanceStats() {
 
 function UpdateToolList() {
 	var list = document.getElementById( "toolList" )
-	eel.GetToolList()( n => {
+	pywebview.api.GetToolList()( n => {
 		for ( var i = 0; i < n.length; i++ ) ( function( i ) {
 			var a = document.createElement( "a" )
 			var textnode = document.createTextNode( n[i][0] )
 			a.appendChild( textnode )
 			a.addEventListener( "click", function() {
-				eel.ChangeTool( n[i][1] )
+				pywebview.api.ChangeTool( n[i][1] )
 				sessionStorage.setItem( "CurrentTitle", n[i][0] )
 				location.href = "main.html"
 			} )
@@ -77,7 +77,7 @@ function UpdateToolList() {
 
 function UpdateFilePage() {
 	var page = document.getElementById( "fileContainer" )
-	eel.GetFilePage()( n => {
+	pywebview.api.GetFilePage()( n => {
 		page.innerHTML = n
 	} )
 }

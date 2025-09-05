@@ -1,4 +1,3 @@
-import eel
 import requests
 
 NAME = "Samsung TV Remote"
@@ -65,13 +64,12 @@ HTML = """
 """
 
 for d in DATA:
-	HTML += f"<button onclick='SetRemoteData( {d[1]} )'>{d[0]}</button>"
+	HTML += f"<button onclick='pywebview.api.SendData( {d[1]} )'>{d[0]}</button>"
+
+def SendData( data ):
+	requests.post( f"http://toolgunremote.local/change?address={ADDRESS}&command={data}&protocol={PROTOCOL.lower()}" )
+	print( f"Changing data to {data}" )
 
 def PullTrigger():
 	requests.post( "http://toolgunremote.local/fire" )
 	print( "Firing IR emitter..." )
-	
-@eel.expose
-def SetRemoteData( data ):
-	requests.post( f"http://toolgunremote.local/change?address={ADDRESS}&command={data}&protocol={PROTOCOL.lower()}" )
-	print( f"Changing data to {data}" )

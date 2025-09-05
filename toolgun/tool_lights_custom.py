@@ -1,18 +1,16 @@
-import eel
 import random
 import requests
 
+NAME = "LED Web Server Remote"
 MODE = 0
 COLOR = ""
 LED_SIZE = 200
-
-@eel.expose
-def ChangeColorMode( mode, color = None ):
-	global MODE, COLOR
-	MODE = mode
-	if color is not None:
-		convert = int( f"0x{color}", 16 )
-		COLOR = f"color={convert}"
+HTML = """
+	<input type="color" id="colorPicker" oninput="pywebview.api.SendData( { 1, colorPicker.value.substring( 1 ) } )">
+	<label for="colorPicker">Custom Color</label><br><br>
+	<button onclick="pywebview.api.SendData( { 2 } )">Random Single Color</button><br><br>
+	<button onclick="pywebview.api.SendData( { 3 } )">Random Multi Color</button>
+"""
 
 def RandomSingleColor():
 	rand = random.randint( 0, 0xFFFFFF )
@@ -26,13 +24,12 @@ def RandomMultiColor():
 		url += f"led{i}={rand}&"
 	return url
 
-NAME = "LED Web Server Remote"
-HTML = """
-	<input type="color" id="colorPicker" oninput="eel.ChangeColorMode( 1, colorPicker.value.substring( 1 ) )">
-	<label for="colorPicker">Custom Color</label><br><br>
-	<button onclick="eel.ChangeColorMode( 2 )">Random Single Color</button><br><br>
-	<button onclick="eel.ChangeColorMode( 3 )">Random Multi Color</button>
-"""
+def DataChanged( data ):
+	global MODE, COLOR
+	MODE = data[0]
+	if data[1] is not None:
+		convert = int( f"0x{data[1]}", 16 )
+		COLOR = f"color={convert}"
 
 def PullTrigger():
 	global MODE, COLOR

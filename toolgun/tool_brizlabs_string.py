@@ -1,4 +1,3 @@
-import eel
 import requests
 
 NAME = "BrizLabs Fairy String Remote"
@@ -53,13 +52,12 @@ HTML = """
 """
 
 for d in DATA:
-	HTML += f"<button onclick='SetBrizlabsData( {d[1]} )'>{d[0]}</button>"
+	HTML += f"<button onclick='pywebview.api.SendData( {d[1]} )'>{d[0]}</button>"
+
+def SendData( data ):
+	requests.post( f"http://toolgunremote.local/change?address={ADDRESS}&command={data}&protocol={PROTOCOL.lower()}" )
+	print( f"Changing data to {data}" )
 
 def PullTrigger():
 	requests.post( "http://toolgunremote.local/fire" )
 	print( "Firing IR emitter..." )
-	
-@eel.expose
-def SetBrizlabsData( data ):
-	requests.post( f"http://toolgunremote.local/change?address={ADDRESS}&command={data}&protocol={PROTOCOL.lower()}" )
-	print( f"Changing data to {data}" )

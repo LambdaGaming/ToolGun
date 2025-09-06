@@ -1,5 +1,0 @@
-eel
-gpiozero
-psutil
-pynput
-requests

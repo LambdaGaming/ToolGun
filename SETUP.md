@@ -4,29 +4,24 @@ I am not an engineer by any means, so expect weird methods of doing things, espe
 I also ended up omitting certain components either to reduce the complexity of the build, or because they physically wouldn't fit with the parts I have, so not everything seen on the original tool gun is included here.
 
 # Software Setup
+## Raspberry Pi OS
+The tool gun currently requires the Raspberry Pi OS version that's based on Debian 12 (Bookworm). Other versions will not work properly due to missing packages and requiring different steps to get everything setup.
+
 ## [Main Program](https://github.com/lambdagaming/toolgun)
 The main tool gun program can be downloaded by typing `git clone https://github.com/lambdagaming/toolgun` in the terminal. Once you have it downloaded, navigate to the toolgun directory and type `python main.py` in the terminal, or alternatively make the ToolGun.sh file 
 executable and run it.
 
-## Python 3.7+
-The main program requires at least Python 3.7, which comes with Raspberry Pi OS by default, so you won't have to do anything there except install the required libraries, which you can do by opening the terminal, navigating to the tool gun directory, and entering `pip install -r requirements.txt`.
-
-## Chromium Browser
-Chromium also comes with the OS by default. You can install a different web browser if you'd like, just make sure you leave Chromium installed, as it is required to run the main program's UI.
+## Python Packages
+There's a script included with the main program that will install all of the additional requirements, which mostly include Python packages. Simply run the `install_requirements.sh` script to install everything.
 
 ## Screen
-The Pi might detect the screen, but the touch feature will not work and the resolution will not set properly, so you will have to follow the instructions the manufacturer provides to download and install the driver. If you want the screen to display as portrait instead of landscape, there are a few more steps that need to be taken. You must add these AFTER the screen driver is installed, otherwise they will be overwritten:  
-1. In the terminal, type `sudo nano /boot/config.txt`.
-2. At the bottom of the file, enter these two lines:
-	```
-	display_rotate=3
-	gpu_mem=128
-	```
-	Save the file and exit nano. The remaining steps below aren't required if your screen automatically recalibrates its touch feature for different orientations.
-3. Back in the terminal, type `sudo nano /usr/share/X11/xorg.conf.d/99-calibration.conf`.
-4. On line 4, swap the last two numbers of the `Calibration` option.
-5. On line 5, change the value of the `SwapAxes` option from 1 to 0.  
-6. Your config file should look something like this
+The Pi should detect the screen, but the touch feature probably won't work, so you will have to follow the instructions the manufacturer provides to download and install the driver for it. Some screens might not work with the latest versions of Raspberry Pi OS since it now uses Wayland by default. You can change the screen's resolution and orientaiton by clicking the Raspberry Pi icon in the taskbar, hovering over Preferences, clicking Screen Configuration, and right clicking the display in the menu that opens. I personally had to change the orientation to Left and the resolution to 720x480.
+
+These steps are only required if your display's touch feature doesn't automatically recalibrate after the orientation has been changed.
+1. In the terminal, type `sudo nano /usr/share/X11/xorg.conf.d/99-calibration.conf`.
+2. On line 4, swap the last two numbers of the `Calibration` option.
+3. On line 5, change the value of the `SwapAxes` option from 1 to 0.  
+4. Your config file should look something like this
 	```
 	Section "InputClass"
 			Identifier      "calibration"

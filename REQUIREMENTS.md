@@ -11,17 +11,17 @@ These are parts I made to go along with the main parts. They include a mount for
 # [3D Printed Battery Holder](https://www.thingiverse.com/thing:4787641)
 Holds the fake battery on the side of the gun. Made by sstoyanoff on Thingiverse. Printed with black 1.75mm PLA filament at fine quality with 20% infill.
 
-# [Raspberry Pi 4 B](https://www.raspberrypi.com/products/raspberry-pi-4-model-b/)
-Controls pretty much everything on the tool gun. I personally recommend the Pi 4 with at least 4 GB of RAM for the best performance. I'm currently using a Pi 2 with 1 GB of RAM and it's pretty slow, especially when first starting up the program, but it does work. Just be aware if you do use a Pi 2, it does not have onboard WiFi so you will need a USB WiFi dongle to go with it.  
+# [Raspberry Pi](https://www.raspberrypi.com/products/)
+Controls pretty much everything on the tool gun. For the best performance I recommend the Pi 4 or newer. I'm currently using a Pi 2 with 1 GB of RAM and it's pretty slow, especially when first starting up the program, but it does work. Just be aware if you do use a Pi 2, it does not have onboard WiFi so you will need a USB WiFi dongle to go with it.  
 Raspberry Pi OS is the required operating system. Most Pis (if bought new) come with a microSD card with it installed, so you won't have to do much there. Just make sure you have sudo access since you will be installing a lot of things.  
 I also recommend a having a wireless keyboard and mouse handy so you can still use the Pi normally once everything is assembled.
 
 # [3.5" 480x320 Touch Screen Display](https://www.amazon.com/gp/product/B085PYS8P2/)
-This is the screen used for the tool gun. It's not 100% accurate, but it's the closest I could find that isn't too big, too small, or incompatible with the Pi. Needs plugged into the Pi via GPIO for power and touch functionality, and HDMI for video. See wiring diagram for details.
+This is the screen used for the tool gun. It's not 100% accurate, but it's the closest I could find that isn't too big, too small, or incompatible with the Pi. Needs plugged into the Pi via GPIO for power and touch functionality, and HDMI for video. See the [wiring diagram](graphics/wiring.svg) for details.
 ## [Male to Female Breadboard Jumper Wires](https://www.amazon.com/gp/product/B01EV70C78/)
 Colored wires used to connect the GPIO pins on the screen to the GPIO pins on the Pi, commonly found in Raspberry Pi and Arduino starter kits.
 ## HDMI Cable
-The specific connectors depend on which model Pi you end up using. The Pi 4 uses a micro HDMI to HDMI cable, while all other models use a regular HDMI cable. Some Raspberry Pi kits come with a cable but they are usually too long. If you want as little slack as possible I would get a 1 ft cable.
+The specific connectors depend on which model Pi you end up using. The Pi 4 and 5 use a micro HDMI to HDMI cable, while all other models use a regular HDMI cable. Some Raspberry Pi kits come with a cable but they are usually too long. If you want as little slack as possible I would get a 1 ft cable.
 
 # [ESP32 Microcontroller](https://www.amazon.com/gp/product/B0718T232Z/)
 Cheap but powerful microcontroller used to transmit IR data for tools that use it. Communicates with the Pi via WiFi. Other WiFi-enabled, Arduino-compatible microcontrollers should work, but I chose the ESP32 because of its small form factor and low price. It's possible to control IR directly through the Pi, but it's much more complicated compared to Arduino.
@@ -32,7 +32,7 @@ Simple 1 ft cable to connect the ESP32 to the Pi. Only used for power so data pi
 There are 3 paper decals I'm currently using. The decals for the battery and "flux capacitor" were taken from [Thingiverse.](https://www.thingiverse.com/thing:4872305) The schematic decal was taken from the game textures. The battery decal was measured to wrap around an A23 battery, and the "flux capacitor" decal was measured to wrap around a 9V battery. The schematic decal is 32x32mm.
 
 # Copper Wire
-I used a small amount of copper wire to wrap around the cylinder. Ideally it should be covering the whole thing but what I used is what I had lying around.
+I used a small amount of copper wire to wrap around the cylinder. Ideally it should be covering the whole thing but that's what I had lying around.
 
 # Infrared Transmitter LED
 Standard 5mm infrared transmitter LED. Make sure what you get is a transmitter and not a receiver. Transmitters can be clear or have a blueish tint. Receivers can be black or clear.
@@ -41,13 +41,10 @@ Standard 5mm infrared transmitter LED. Make sure what you get is a transmitter a
 Small 5mm pushbutton. The one I used was salvaged from an unused circuit board, but there are plenty of places you can buy them. The size __MUST__ be 5mm or smaller. Anything larger will not fit in the slot behind the trigger.
 
 # Tape
-I used 4 different kinds of tape for various applications. Packaging tape and electrical tape are used the most. I also used cloth tape and masking tape for the grip, and clear tape for the schematic decal. I recommend strapping/filament tape instead of packaging tape if you are trying to make it look as close to the original as possible.
+I used 5 different kinds of tape for various applications. Packaging tape and electrical tape are used the most. I also used cloth tape and masking tape for the grip, and clear tape for the schematic decal. I recommend strapping/filament tape instead of packaging tape if you are trying to make it look as close to the original as possible.
 
 # Screws & Nuts
 3mm screws were used for the Pi mount and the base of the screen mount. 3 nuts were also used on the screws that hold the Pi to its mount.
 
 # Glue
 I used superglue and hot glue for assembly. Any brand should be fine for both.
-
-# [Optional Battery](https://powerbank.zendure.com/products/supermini-5k)
-I found a small power bank called the Zendure SuperMini 5k that I use occasionally when I want go to wireless. It was the only one I could find that was small enough to mount somewhere on the gun and powerful enough to run everything. It was pretty cheap and fits nicely under the barrel. I used velcro straps to hold it in place. Due to its weight, I recommend using a wooden grip to help keep things evened out. I also recommend using a very short USB power cable, as anything longer than 1 foot seems to drop the voltage too much. The battery doesn't seem to be available on Amazon anymore, so I linked the official page.

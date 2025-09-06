@@ -71,5 +71,5 @@ def PullTrigger():
 if __name__ == "__main__":
 	PreloadTools()
 	trigger.when_pressed = PullTrigger
-	webview.create_window( "", "web/main.html", js_api=Api(), min_size=( 256, 256 ), fullscreen=True )
-	webview.start( gui="qt" )
+	webview.create_window( "Tool Gun", "web/main.html", js_api=Api(), min_size=( 256, 256 ), maximize=True )
+	webview.start( gui="gtk" )

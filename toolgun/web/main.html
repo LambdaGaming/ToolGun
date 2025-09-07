@@ -8,7 +8,7 @@
 		<div class="topPanel">
 			<img class="balls" src="images/balls.png">
 			<span class="topPanelText">Garrys Mod Hello</span>
-			<img id="speaker" class="speaker" src="images/speaker_on.png">
+			<img id="speaker" class="speaker" onclick="ToggleMute()" src="images/speaker_on.png">
 			<span id="time" class="time"></span>
 		</div>
 		<div class="navPanel">
@@ -38,10 +38,12 @@
 		</div>
 	</body>
 	<script>
-		UpdateTime()
-		setInterval( UpdateTime, 1000 )
-		UpdateScrollText()
-		UpdateVolume()
-		setInterval( UpdatePerformanceStats, 1000 )
+		window.addEventListener( "pywebviewready", function() {
+			UpdateTime()
+			setInterval( UpdateTime, 1000 )
+			setInterval( UpdatePerformanceStats, 1000 )
+			UpdateScrollText()
+			UpdateVolume()
+		} )
 	</script>
 </html>

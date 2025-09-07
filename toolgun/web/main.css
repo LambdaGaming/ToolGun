@@ -15,8 +15,10 @@ body {
 }
 
 .speaker {
+	position:relative;
 	margin-left:170px;
 	margin-bottom:6px;
+	z-index:10;
 }
 
 .time {

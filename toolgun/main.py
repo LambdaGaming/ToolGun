@@ -13,12 +13,12 @@ trigger = Button( 3 )
 
 CURRENT_MODULE = importlib.import_module( "tool_base" )
 TOOL_LIST = []
+MUTED = False
 
 class Api:
-	def IsMuted( self ):
-		sinkslist = subprocess.run( ["pacmd", "list-sinks"], stdout = subprocess.PIPE )
-		result = subprocess.run( ["awk", "/muted/ { print $2 }"], stdout = subprocess.PIPE, input = sinkslist.stdout )
-		return "yes" in result.stdout.decode( "utf-8" )
+	def SetMuted( self, muted ):
+		global MUTED
+		MUTED = muted
 
 	def GetPerformanceStats( self ):
 		tempfile = open( "/sys/class/thermal/thermal_zone0/temp" )
@@ -42,8 +42,9 @@ class Api:
 		CURRENT_MODULE = importlib.import_module( name )
 		if "Open" in dir( CURRENT_MODULE ):
 			CURRENT_MODULE.Open()
-		mixer.music.load( "sounds/select.wav" )
-		mixer.music.play()
+		if not MUTED:
+			mixer.music.load( "sounds/select.wav" )
+			mixer.music.play()
 
 	def SendData( self, data ):
 		CURRENT_MODULE.SendData( data )
@@ -64,8 +65,9 @@ def PreloadTools():
 
 def PullTrigger():
 	CURRENT_MODULE.PullTrigger()
-	mixer.music.load( f"sounds/shoot{randint( 1, 2 )}.wav" )
-	mixer.music.play()
+	if not MUTED:
+		mixer.music.load( f"sounds/shoot{randint( 1, 2 )}.wav" )
+		mixer.music.play()
 
 if __name__ == "__main__":
 	PreloadTools()

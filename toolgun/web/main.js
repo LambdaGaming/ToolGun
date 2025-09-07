@@ -30,15 +30,23 @@ function UpdateTime() {
 }
 
 function UpdateVolume() {
+	var muted = sessionStorage.getItem( "muted" )
+	speaker.src = muted == "true" ? "images/speaker_off.png" : "images/speaker_on.png"
+}
+
+function ToggleMute() {
 	var speaker = document.getElementById( "speaker" )
-	pywebview.api.IsMuted()( n => {
-		if ( n ) {
-			speaker.src = "images/speaker_off.png"
-		}
-		else {
-			speaker.src = "images/speaker_on.png"
-		}
-	} )
+	var muted = sessionStorage.getItem( "muted" )
+	if ( muted == "true" ) {
+		speaker.src = "images/speaker_on.png"
+		pywebview.api.SetMuted( false )
+		sessionStorage.setItem( "muted", "false" )
+	}
+	else {
+		speaker.src = "images/speaker_off.png"
+		pywebview.api.SetMuted( true )
+		sessionStorage.setItem( "muted", "true" )
+	}
 }
 
 function UpdateScrollText() {

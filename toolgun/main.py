@@ -6,7 +6,6 @@ import subprocess
 import time
 from gpiozero import Button
 from pygame import mixer
-from pynput.keyboard import Key, Controller
 from random import randint
 
 mixer.init()
@@ -53,7 +52,7 @@ class Api:
 		return CURRENT_MODULE.HTML
 
 	def Shutdown( self ):
-		exit()
+		webview.windows[0].destroy()
 
 # Imports all tools to get their names, might also help with performance when tools get switched
 def PreloadTools():
@@ -71,5 +70,5 @@ def PullTrigger():
 if __name__ == "__main__":
 	PreloadTools()
 	trigger.when_pressed = PullTrigger
-	webview.create_window( "Tool Gun", "web/main.html", js_api=Api(), min_size=( 256, 256 ), maximize=True )
+	webview.create_window( "Tool Gun", "web/main.html", js_api=Api(), min_size=( 256, 256 ), maximized=True )
 	webview.start( gui="gtk" )

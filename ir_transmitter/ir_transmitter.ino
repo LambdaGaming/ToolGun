@@ -20,7 +20,7 @@ decode_type_t getProtocolFromString( const char* str )
 	uint8_t i = 0;
 	while( i != OTHER )
 	{
-		if ( ProtocolNames[i] == str )
+		if ( strcmp( ( const char* ) ProtocolNames[i], str ) == 0 )
 		{
 			proto = ( decode_type_t ) i;
 			break;

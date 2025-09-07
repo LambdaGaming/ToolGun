@@ -19,10 +19,12 @@
 		</div>
 	</body>
 	<script>
-		UpdateTime()
-		setInterval( UpdateTime, 1000 )
-		UpdateVolume()
-		UpdateFilePage()
-		setTimeout( UpdateFileScrollPos, 500 )
+		window.addEventListener( "pywebviewready", function() {
+			UpdateTime()
+			setInterval( UpdateTime, 1000 )
+			UpdateVolume()
+			UpdateFilePage()
+			setTimeout( UpdateFileScrollPos, 500 )
+		} )
 	</script>
 </html>

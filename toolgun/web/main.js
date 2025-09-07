@@ -61,7 +61,7 @@ function UpdatePerformanceStats() {
 	var ramstats = document.getElementById( "ramstats" )
 	var uptime = document.getElementById( "uptime" )
 
-	pywebview.api.GetPerformanceStats()( n => {
+	pywebview.api.GetPerformanceStats().then( n => {
 		cpustats.innerHTML = `${n[0]}%`
 		gpustats.innerHTML = `${n[1]}c`
 		ramstats.innerHTML = `${n[2]}%`
@@ -71,7 +71,7 @@ function UpdatePerformanceStats() {
 
 function UpdateToolList() {
 	var list = document.getElementById( "toolList" )
-	pywebview.api.GetToolList()( n => {
+	pywebview.api.GetToolList().then( n => {
 		for ( var i = 0; i < n.length; i++ ) ( function( i ) {
 			var a = document.createElement( "a" )
 			var textnode = document.createTextNode( n[i][0] )
@@ -90,7 +90,7 @@ function UpdateToolList() {
 
 function UpdateFilePage() {
 	var page = document.getElementById( "fileContainer" )
-	pywebview.api.GetFilePage()( n => {
+	pywebview.api.GetFilePage().then( n => {
 		page.innerHTML = n
 	} )
 }

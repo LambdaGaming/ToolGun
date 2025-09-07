@@ -10,11 +10,9 @@ RIP Dav0r
 ## UI
  The UI is nearly identical to the one seen in-game. The biggest differences are that this one is actually interactive and includes more than one menu. Below is a complete list of UI features.
 - 24-hour clock
-- Audio mute status
+- Audio mute button
 - Scrolling text that displays the title of currently selected tool
-- CPU and RAM usage stat
-- CPU temperature stat
-- System uptime stat
+- Stats that display CPU usage, RAM usage, CPU temperature, and system uptime
 - File menu - Displays custom menu defined by each tool
 - Open menu - Displays list of tools
 - Quit button

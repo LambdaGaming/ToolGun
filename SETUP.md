@@ -8,8 +8,7 @@ I also ended up omitting certain components either to reduce the complexity of t
 The tool gun currently requires the Raspberry Pi OS version that's based on Debian 12 (Bookworm). Other versions will not work properly due to missing packages and requiring different steps to get everything setup.
 
 ## [Main Program](https://github.com/lambdagaming/toolgun)
-The main tool gun program can be downloaded by typing `git clone https://github.com/lambdagaming/toolgun` in the terminal. Once you have it downloaded, navigate to the toolgun directory and type `python main.py` in the terminal, or alternatively make the ToolGun.sh file 
-executable and run it.
+The main tool gun program can be downloaded by typing `git clone https://github.com/lambdagaming/toolgun` in the terminal. The program can be launched by running the ToolGun.sh file located in the main toolgun directory, once all of the dependencies are installed. See below for more info.
 
 ## Python Packages
 There's a script included with the main program that will install all of the additional requirements, which mostly include Python packages. Simply run the `install_requirements.sh` script to install everything.

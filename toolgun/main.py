@@ -70,6 +70,7 @@ def PullTrigger():
 		mixer.music.play()
 
 if __name__ == "__main__":
+	print( "Welcome to Tool Gun v2.0! © 2022-2025 OPGman. Licenced under the MIT License." )
 	PreloadTools()
 	trigger.when_pressed = PullTrigger
 	webview.create_window( "Tool Gun", "web/main.html", js_api=Api(), min_size=( 256, 256 ), maximized=True )

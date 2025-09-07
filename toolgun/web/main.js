@@ -1,3 +1,8 @@
+window.addEventListener( "pywebviewready", function() {
+	// Adjust zoom based on size of window so the page always fills the screen
+	document.documentElement.style.zoom = window.innerWidth / 256
+} )
+
 function UpdateOpenScrollPos( save = false ) {
 	var open = document.getElementById( "toolList" )
 	if ( save ) {

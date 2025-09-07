@@ -55,7 +55,7 @@ for d in DATA:
 	HTML += f"<button onclick='pywebview.api.SendData( {d[1]} )'>{d[0]}</button>"
 
 def SendData( data ):
-	requests.post( f"http://toolgunremote.local/change?address={ADDRESS}&command={data}&protocol={PROTOCOL.lower()}" )
+	requests.post( f"http://toolgunremote.local/change?address={ADDRESS}&command={data}&protocol={PROTOCOL}" )
 	print( f"Changing data to {data}" )
 
 def PullTrigger():

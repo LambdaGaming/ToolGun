@@ -2,7 +2,7 @@ import requests
 
 NAME = "Samsung TV Remote"
 ADDRESS = "1799"
-PROTOCOL = "Samsung"
+PROTOCOL = "Samsung" #Protocol names can be found at https://github.com/Arduino-IRremote/Arduino-IRremote/blob/master/src/IRProtocol.hpp
 DATA = [
 	["Power", "2"], # [Name, IR command in base 10]
 	["Source", "1"],
@@ -67,7 +67,7 @@ for d in DATA:
 	HTML += f"<button onclick='pywebview.api.SendData( {d[1]} )'>{d[0]}</button>"
 
 def SendData( data ):
-	requests.post( f"http://toolgunremote.local/change?address={ADDRESS}&command={data}&protocol={PROTOCOL.lower()}" )
+	requests.post( f"http://toolgunremote.local/change?address={ADDRESS}&command={data}&protocol={PROTOCOL}" )
 	print( f"Changing data to {data}" )
 
 def PullTrigger():

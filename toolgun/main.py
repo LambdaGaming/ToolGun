@@ -4,6 +4,7 @@ import os
 import psutil
 import subprocess
 import time
+import sys
 from gpiozero import Button
 from pygame import mixer
 from random import randint
@@ -54,6 +55,7 @@ class Api:
 
 	def Shutdown( self ):
 		webview.windows[0].destroy()
+		sys.exit()
 
 # Imports all tools to get their names, might also help with performance when tools get switched
 def PreloadTools():
